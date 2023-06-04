@@ -1,1 +1,1 @@
-# WAD
+# Web Applications Development
