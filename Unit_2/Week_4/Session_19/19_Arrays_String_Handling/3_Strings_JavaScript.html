@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Strings in JavaScript</title>
+</head>
+<body>
+    <h1>String in JavaScript</h1>
+    <h2>What is String?</h2>
+    <p>A string is a sequence of one or more characters that may consist of letters, numbers, or symbols.</p>
+    <h2>What is String Literals?</h2>
+    <p>String literals are enclosed in single or double quotes. For example:</p>
+    <p>var str1 = "Hello World!";</p>
+    <p>var str2 = 'Hello World!';</p>
+    <h2>String Methods</h2>
+    <p>String methods help you to work with strings.</p>
+    <ul>
+    <li>charAt()</li>
+    <p>The charAt() method returns the character at the specified index in a string.</p>
+    <p>Syntax of charAt()</p>
+    <pre>string.charAt(index)</pre>
+    <pre>var str = "Hello World!";</pre>
+    <pre>var res = str.charAt(0);</pre>
+    <script>
+        var str = "Hello World!";
+        var res = str.charAt(1);
+        document.write(res);
+    </script>
+
+    <li>charCodeAt()</li>
+    <p>The charCodeAt() method returns the Unicode of the character at the specified index in a string.</p>
+    <p>Syntax of charCodeAt()</p>
+    <pre>string.charCodeAt(index)</pre>
+    <pre>var str = "Hello World!";</pre>    
+    <pre>var res = str.charCodeAt(0);</pre> 
+    <script>
+        var str = "Hello World!";
+        var res = str.charCodeAt(0);
+        var res = str.charCodeAt(1);
+        document.write(res);
+    </script>
+    <li>concat()</li>
+    <p>The concat() method joins two or more strings.</p>
+    <p>Syntax of concat()</p>
+    <pre>string.concat(string1, string2, ..., stringX)</pre>
+    <pre>var str1 = "Hello ";</pre>
+    <pre>var str2 = "World!";</pre>
+    <pre>var res = str1.concat(str2);</pre>
+    <script>
+        var str1 = "Hello ";
+        var str2 = "World!";
+        var str3 = "How are you?";
+        var res = str1.concat(str2);
+        var res = res.concat(str3);
+        document.write(res + "<br>");
+
+    </script>
+
+    <li>indexOf()</li>
+    <p>The indexOf() method returns the index of (the position of) the first occurrence of a specified text in a string.</p>
+    <p>Syntax of indexOf()</p>
+    <pre>string.indexOf(searchvalue, start)</pre>
+    <pre>var str = "Hello world, welcome to the universe."; </pre>  
+    <pre>var n = str.indexOf("welcome");</pre>  
+    <script>
+        var str = "Hello world, welcome to the universe.welcome"; 
+        var n = str.indexOf("welcome", 15);
+        document.write(n + "<br>");
+    </script>
+    <li>lastIndexOf()</li>
+    <p>The lastIndexOf() method returns the index of the last occurrence of a specified text in a string.</p>
+    <p>Syntax of lastIndexOf()</p>
+    <pre>string.lastIndexOf(searchvalue, start)</pre>
+    <pre>var str = "Hello planet earth, you are a great planet."; </pre>
+    <pre>var n = str.lastIndexOf("planet");</pre>
+    <script>
+        var str = "Hello planet earth, you are a great planet."; 
+        var n = str.lastIndexOf("planet", 20);
+        document.write(n + "<br>");
+    </script>
+
+    <li>localeCompare()</li>
+    <p>The localeCompare() method compares two strings in the current locale.</p>
+
+    <p>Syntax of localeCompare()</p>
+    <pre>string.localeCompare(compareString)</pre>
+    <pre>var str1 = "ab";</pre>
+    <pre>var str2 = "cd";</pre>
+    <pre>var n = str1.localeCompare(str2);</pre>
+    <script>
+        var str1 = "ab";
+        var str2 = "ab";
+        var n = str1.localeCompare(str2);
+        document.write(n + "<br>");
+    </script>
+    <li>match()</li>
+    <p>The match() method searches a string for a match against a regular expression, and returns the matches, as an Array object.</p>
+    <p>Syntax of match()</p>
+    <pre>string.match(regexp)</pre>
+    <pre>var str = "The rain in SPAIN stays mainly in the plain";</pre>
+    <pre>var res = str.match(/ain/g);</pre>
+    <script>
+        var str = "The rain in SPAIN stays mainly in the plain";
+        var res = str.match(/ain/g);
+        document.write(res + "<br>");
+    </script>
+    <li>replace()</li>
+    <p>The replace() method searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced.</p>
+    <p>Syntax of replace()</p>
+    <pre>string.replace(searchvalue, newvalue)</pre>
+    <pre>var str = "Visit Microsoft!";</pre>
+    <pre>var res = str.replace("Microsoft", "W3Schools");</pre>
+    <script>
+        var str = "Visit Microsoft!";
+        var res = str.replace("Microsoft", "W3Schools");
+        document.write(str + "<br>");
+        document.write(res + "<br>");
+    </script>
+    <li>search()</li>
+    <p>The search() method searches a string for a specified value, and returns the position of the match.</p>
+    <p>Syntax of search()</p>
+    <pre>string.search(searchvalue)</pre>
+    <pre>var str = "Visit W3Schools!";</pre>    
+    <pre>var n = str.search("W3Schools");</pre>
+    <script>
+        var str = "Visit W3Schools!";
+        var n = str.search("W3Schools");
+        document.write(n + "<br>");
+    </script>
+    <li>slice()</li>
+    <p>The slice() method extracts parts of a string and returns the extracted parts in a new string.</p>
+    <p>Syntax of slice()</p>
+    <pre>string.slice(start, end)</pre>
+    <pre>var str = "Apple, Banana, Kiwi";</pre>
+    <pre>var res = str.slice(7, 13);</pre>
+    <script>
+        var str = "Apple, Banana, Kiwi";
+        var res = str.slice(7, 13);
+        document.write(res + "<br>");
+    </script>
+    <li>split()</li>
+    <p>The split() method is used to split a string into an array of substrings, and returns the new array.</p>
+
+    <p>Syntax of split()</p>
+    <pre>string.split(separator, limit)</pre>
+    <pre>var str = "How are you doing today?";</pre>
+    <pre>var res = str.split(" ");</pre>
+    <script>
+        var str = "How are you doing today?";
+        var res = str.split(" ");
+        document.write(res + "<br>");
+        document.write(res[3] + "<br>");
+    </script>
+    <li>substr()</li>
+    <p>The substr() method extracts parts of a string, beginning at the character at the specified position, and returns the specified number of characters.</p>
+    <p>Syntax of substr()</p>
+    <pre>string.substr(start, length)</pre>
+    <pre>var str = "Hello world!";</pre>    
+    <pre>var res = str.substr(1, 4);</pre>
+    <script>
+        var str = "Hello world!";
+        var res = str.substr(0, 5);
+        document.write(res + "<br>");
+    </script>
+    <li>substring()</li>
+    <p>The substring() method extracts the characters from a string, between two specified indices, and returns the new sub string.</p>
+    <p>Syntax of substring()</p>
+    <pre>string.substring(start, end)</pre>
+    <pre>var str = "Hello world!";</pre>
+    <pre>var res = str.substring(1, 4);</pre>
+    <script>
+        var str = "Hello world!";
+        var res = str.substring(5, 11);
+        document.write(res + "<br>");
+    </script>
+    <li>toLocaleLowerCase()</li>
+    <p>The toLocaleLowerCase() method converts a string to lowercase letters, according to the host's locale.</p>
+    <p>Syntax of toLocaleLowerCase()</p>
+    <pre>string.toLocaleLowerCase()</pre>
+    <pre>var str = "Hello World!";</pre>
+    <pre>var res = str.toLocaleLowerCase();</pre>
+    <script>
+        var str = "Hello World!";
+        var res = str.toLocaleLowerCase();
+        document.write(res + "<br>");
+    </script>
+    <li>toLocaleUpperCase()</li>
+    <p>The toLocaleUpperCase() method converts a string to uppercase letters, according to the host's locale.</p>
+    <p>Syntax of toLocaleUpperCase()</p>
+    <pre>string.toLocaleUpperCase()</pre>
+    <pre>var str = "Hello World!";</pre>
+    <pre>var res = str.toLocaleUpperCase();</pre>
+    <script>
+        var str = "Hello World!";
+        var res = str.toLocaleUpperCase();
+        document.write(res + "<br>");
+    </script>
+    <li>toLowerCase()</li>
+    <p>The toLowerCase() method converts a string to lowercase letters.</p>
+    <p>Syntax of toLowerCase()</p>
+    <pre>string.toLowerCase()</pre>
+    <pre>var str = "Hello World!";</pre>
+    <pre>var res = str.toLowerCase();</pre> 
+    <script>
+        var str = "Hello World!";
+        var res = str.toLowerCase();
+        document.write(res + "<br>");
+    </script>
+    <li>toUpperCase()</li>
+    <p>The toUpperCase() method converts a string to uppercase letters.</p>
+    <p>Syntax of toUpperCase()</p>
+    <pre>string.toUpperCase()</pre>
+    <pre>var str = "Hello World!";</pre>
+    <pre>var res = str.toUpperCase();</pre>
+    <script>
+        var str = "Hello World!";
+        var res = str.toUpperCase();
+        document.write(res + "<br>");
+    </script>
+    <li>toString()</li>
+    <p>The toString() method returns the value of a string.</p>
+    <p>Syntax of toString()</p>
+    <pre>string.toString()</pre>
+    <pre>var str = "Hello World!";</pre>
+    <pre>var res = str.toString();</pre>
+    <script>
+        var str = "Hello World!";
+        var res = str.toString();
+        document.write(res + "<br>");
+    </script>
+    <li>trim()</li>
+    <p>The trim() method removes whitespace from both sides of a string.</p>
+    <p>Syntax of trim()</p>
+    <pre>string.trim()</pre>
+    <pre>var str = "       Hello World!        ";</pre>
+    <pre>var res = str.trim();</pre>
+    <script>
+        var str = "       Hello World!        ";
+        var res = str.trim();
+        document.write(str + "<br>");
+        document.write(res + "<br>");
+    </script>
+    <li>valueOf()</li>
+    <p>The valueOf() method returns the primitive value of a string object.</p>
+    <p>Syntax of valueOf()</p>
+    <pre>string.valueOf()</pre>
+    <pre>var str = "Hello World!";</pre>
+    <pre>var res = str.valueOf();</pre>
+    <script>
+        var str = "Hello World!";
+        var res = str.valueOf();
+        document.write(res + "<br>");
+    </script>
+
+</ul>
+</body>

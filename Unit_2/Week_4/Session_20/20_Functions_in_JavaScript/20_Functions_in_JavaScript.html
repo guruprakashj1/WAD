@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Functions in JavaScript</title>
+</head>
+<body>
+    <h1>Functions in JavaScript</h1>
+    <h2>What are functions in Javascript?</h2>
+    <p>Functions are a way of packaging functionality that you wish to reuse. Functions are also a way of packaging functionality that you wish to run at a later time or in response to an event.</p>
+    <h2>How to define a function in JavaScript?</h2>
+    <p>There are two ways to define a function in JavaScript:</p>
+    <ul>
+        <li>Function Declaration</li>
+        <li>Function Expression</li>
+    </ul>
+    <h3>Function Declaration</h3>
+    <p>Function declarations are hoisted to the top of the enclosing scope. This means that you can call a function before it is declared:</p>
+    <pre>
+        <code>
+            sayHello();
+            function sayHello() {
+                console.log("Hello!");
+            }
+        </code>
+    </pre>
+    <p>Function declarations are not terminated with a semicolon.</p>   
+
+    <h3>Function Expression</h3>
+    <p>Function expressions are not hoisted to the top of the enclosing scope. This means that you cannot call a function expression before it is declared:</p>
+    <pre>
+        <code>
+            sayHello();
+            var sayHello = function() {
+                console.log("Hello!");
+            };
+        </code>
+    </pre>
+
+   <h2> What is the difference between function declaration and function expression?</h2>
+   <p>Function declarations are hoisted to the top of the enclosing scope. This means that you can call a function before it is declared. Function expressions are not hoisted to the top of the enclosing scope. This means that you cannot call a function expression before it is declared.</p>
+
+   <h2> Various ways to invoke function in javascript</h2>
+   <ul>
+         <li>Function Invocation</li>
+         <p>Function invocation is the most common way to invoke a function. It involves invoking a function by using the function name followed by parentheses. If the function has parameters, you pass the arguments into the parentheses.</p>
+         <pre>
+            <code>
+                function sayHello(name) {
+                    console.log("Hello " + name);
+                }
+                sayHello("John");
+            </code>
+            </pre>
+<script>
+function sayHello(name) {
+    document.write("Hello " + name);
+}
+sayHello("John");
+</script>
+        
+         <li>Method Invocation</li>
+            <p>Method invocation is similar to function invocation. The only difference is that you invoke a method on an object. The method invocation is also known as a method call.</p>
+            <pre>
+                <code>
+                    var person = {
+                        name: "John",
+                        sayHello: function() {
+                            document.write("Hello " + this.name);
+                        }
+                    };
+                    person.sayHello();
+                </code>
+            </pre>
+
+            <script>
+                var person = {
+                    name: "John",
+                    sayHello: function() {
+                        document.write("Hello " + this.name);
+                    }
+                };
+                person.sayHello();
+
+            </script>
+         <li>Constructor Invocation</li>
+
+            <p>Constructor invocation is used to create a new object. The new operator creates an empty object and then invokes the function specified after the new operator. The function invoked by the new operator is called a constructor function. The constructor function initializes the properties of the new object.</p>
+
+            <pre>
+                <code>
+                    function Person(name) {
+                        this.name = name;
+                    }
+                    var person = new Person("John");
+                    document.write(person.name);
+                </code>
+            </pre>
+
+            <script>
+                function Person(name) {
+                    this.name = name;
+                }
+                var person = new Person("John<br>");
+                document.write(person.name);
+                var newperson = new Person("Smith<br>");
+                document.write(newperson.name);
+                var newperson1 = new Person("Raj<br>");
+                document.write(newperson1.name);
+            </script>
+         <li>Apply Invocation</li>
+            <p>Apply invocation is similar to function invocation. The only difference is that you can pass an array of arguments to the function.</p>
+            <pre>
+                <code>
+                    function sayHello(name) {
+                        document.write("Hello " + name);
+                    }
+                    sayHello.apply(null, ["John"]);
+                </code>
+            </pre>
+
+            <script>
+                function sayHello(name , name1 , name2) {
+                    document.write("Hello " + name + "<br>");
+                    document.write("Hello " + name1 +    "<br>");
+                    document.write("Hello " + name2);
+                }
+                sayHello.apply(null, ["John" , "Guru" , "Sam"] );
+            </script>
+   </ul>
+
+    
+
+
+</body>
+</html>

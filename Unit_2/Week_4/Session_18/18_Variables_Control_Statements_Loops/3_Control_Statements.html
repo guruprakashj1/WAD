@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Control Statements in JavaScript</title>
+</head>
+<body>
+    <h2>What is control statements in Javascript?</h2>
+    <p>Control statements are used to control the flow of execution of a program based on certain conditions. <br> JavaScript supports the following control statements:</p>
+
+    <ul>
+        <li>Conditional Statements</li>
+        <li>Looping Statements</li>
+        <li>Jump Statements</li>
+    </ul>
+    <h2>What is conditional statements in Javascript?</h2>
+
+    <p>Conditional statements are used to perform different actions based on different conditions. <br> JavaScript supports the following conditional statements:</p>
+
+    <ul>
+        <li>if...else</li>
+        <li>switch</li>
+    </ul>
+
+    <h2>What is if...else statement in Javascript?</h2>
+
+    <p>The if...else statement is used to execute a block of code based on the condition. <br> If the condition evaluates to true, then the if block of code will be executed, otherwise else block of code will be executed.</p>
+
+    <h3>Example for if else</h3>
+    <p>synatax of if..else</p>
+    <pre>
+        if (condition) {
+            // block of code to be executed if the condition is true
+        } else {
+            // block of code to be executed if the condition is false
+        }
+    </pre>
+    <script>
+        var age = 16;
+        if (age >= 18) {
+            document.write("You are eligible to vote!");
+        } else {
+            document.write("You are not eligible to vote!");
+        }
+    </script>
+
+    <h2>What is switch statement in Javascript?</h2>
+    <p>The switch statement is used to execute one of the many blocks of code based on the expression.</p>
+
+    <h3>Example for switch</h3>
+    <p>synatax of switch</p>
+    <pre>
+        switch (expression) {
+            case value1:
+                // block of code to be executed if expression = value1
+                break;
+            case value2:
+                // block of code to be executed if expression = value2
+                break;
+            ...
+            case valueN:
+                // block of code to be executed if expression = valueN
+                break;
+            default:
+                // block of code to be executed if expression is different from all values
+        }
+
+    </pre>
+    <script>
+        var day = 8;
+        switch (day) {
+            case 1:
+                document.write("Monday");
+                break;
+            case 2:
+                document.write("Tuesday");
+                break;
+            case 3:
+                document.write("Wednesday");
+                break;
+            case 4:
+                document.write("Thursday");
+                break;
+            case 5:
+                document.write("Friday");
+                break;
+            case 6:
+                document.write("Saturday");
+                break;
+            case 7:
+                document.write("Sunday");
+                break;
+            default:
+                document.write("Invalid day");
+        }
+
+    </script>
+
+    <h1>What is looping statements in Javascript?</h1>
+    <p>Looping statements are used to execute a block of code repeatedly as long as the condition is true. <br> JavaScript supports the following looping statements:</p>
+
+    <ul>
+        <li>for</li>
+        <li>while</li>
+        <li>do...while</li>
+    </ul>
+
+    <h2>What is for loop in Javascript?</h2>
+    <p>The for loop is used to execute a block of code for a specified number of times.</p>
+
+    <h3>Example for for loop</h3>
+    <p>synatax of for loop</p>
+    <pre>
+        for (initialization; condition; increment/decrement) {
+            // block of code to be executed
+        }
+    </pre>
+
+    <script>
+        for (var i = 1; i <= 5; i++) {
+            document.write(i + "<br>");
+        }
+    </script>
+
+    <h2>What is while loop in Javascript?</h2>
+    <p>The while loop is used to execute a block of code as long as the condition is true.</p>
+
+    <h3>Example for while loop</h3>
+    <p>synatax of while loop</p>
+    <pre>
+        while (condition) {
+            // block of code to be executed
+        }
+    </pre>
+
+    <script>
+        var i = 1;
+        while (i <= 5) {
+            document.write(i + "<br>");
+            i++;
+        }
+    </script>
+
+    <h2>What is do...while loop in Javascript?</h2>
+    <p>The do...while loop is used to execute a block of code as long as the condition is true. <br> The block of code will be executed once before the condition is checked.</p>
+
+    <h3>Example for do...while loop</h3>
+    <p>synatax of do...while loop</p>
+    <pre>
+        do {
+            // block of code to be executed
+        } while (condition);
+    </pre>
+
+    <script>
+        var i = 1;
+        do {
+            document.write(i + "<br>");
+            i++;
+        } while (i <= 5);
+    </script>
+
+    <h1>What is jump statements in Javascript?</h1>
+    <p>Jump statements are used to transfer the control of the program to a specific statement. <br> JavaScript supports the following jump statements:</p>
+
+    <ul>
+        <li>break</li>
+        <li>continue</li>
+    </ul>
+
+    <h2>What is break statement in Javascript?</h2>
+    <p>The break statement is used to terminate the loop or switch statement and transfer the control over the next statement.</p>
+
+    <h3>Example for break statement</h3>
+    <p>synatax of break statement</p>
+    <pre>
+        break;
+
+    </pre>
+
+    <script>
+        for (var i = 1; i <= 5; i++) {
+            if (i == 3) {
+                break;
+            }
+            document.write(i + "<br>");
+        }
+    </script>
+
+    <h2>What is continue statement in Javascript?</h2>
+
+    <p>The continue statement is used to terminate the current iteration of the loop and continue with the next one.</p>
+
+    <h3>Example for continue statement</h3>
+    <p>synatax of continue statement</p>
+    <pre>
+        continue;
+
+    </pre>
+
+    <script>
+        for (var i = 1; i <= 5; i++) {
+            if (i == 3) {
+                continue;
+            }
+            document.write(i + "<br>");
+        }
+    </script>
+    
+
+</body>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<head>
+    <title>Objects in JavaScript</title>
+</head>
+<body>
+    <h2>What is Objects in Javascript?</h2>
+    <p>Objects are variables too. But objects can contain many values.</p>
+    <p>Think of an object as a list of values that are written as name:value pairs, with the names and the values separated by colons.</p>
+    <p>Object properties are written as name:value pairs, separated by commas.</p>
+<h2>syntax for object in javascript</h2>
+<per>
+    var person = {firstName:"Guru", lastName:"Prakash", age:50, eyeColor:"black"};
+</per>
+
+<h2>List of operations that can be performed on objects</h2>
+
+<ul>
+<li>Accessing Object Properties</li>
+
+<li>Adding New Properties</li>
+
+<li>Deleting Properties</li>
+
+<li>Objects and Methods</li>
+
+<li>Object Definition</li>
+
+<li>Object Constructors</li>
+
+<li>Adding Methods to an Object</li>
+
+<li>Adding a Method to a Constructor</li>
+
+<li>Adding Properties to a Constructor</li>
+
+</ul>
+
+<h2>Example of Accessing Object Properties</h2>
+<script>
+    var person = {firstName:"Guru", lastName:"Prakash", age:50, eyeColor:"black"};
+    
+    document.write(person.firstName + " is " + person.age + " years old.");
+</script>
+
+<h2>Example of Adding New Properties</h2>
+<script>    
+
+//adding properties to an object
+var person = {firstName:"Guru", lastName:"Prakash", age:50, eyeColor:"black" , fullName : function() {return this.firstName + " " + this.lastName;}};
+document.write("ex of adding Accessing Object Properties >  " + person.fullName());
+</script>
+
+<h2>Example of Deleting Properties</h2>
+<script>
+    var person = {firstName:"Guru", lastName:"Prakash", age:50, eyeColor:"black"};
+    delete person.age;
+    delete person.firstName
+    document.write(person.firstName + " is " + person.age + " years old."); 
+    </script>
+
+<h2>Example of Objects and Methods</h2>
+<script>
+    var person = {firstName:"Guru", lastName:"Prakash", age:50, eyeColor:"black"};
+    document.write(person.firstName + " is " + person.age + " years old.");
+    </script>
+
+<h2>Example of Object Definition</h2>
+<script>
+    function person(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+    }
+    var myFather = new person("Tom", "J", 50, "blue");
+    var myMother = new person("Ann", "G", 48, "green");
+
+    document.write("My father is " +myFather.firstName +"and he is " + myFather.age + ". My mother is " +myMother.firstName+"and she is " + myMother.age + ".");
+    </script>
+
+<h2>Example of Object Constructors</h2>
+<script>
+//object constructor
+function car(Brand, Color, Type, Price) {
+    this.Brand = Brand;
+    this.Color = Color;
+    this.Type = Type;
+    this.Price = Price;
+}
+
+//creating object
+var myCar = new car("Maruti", "White", "SUV", 1000000);
+
+//displaying object
+
+document.write("My car is " + myCar.Color + " " + myCar.Brand + " " + myCar.Type + " and it costs " + myCar.Price + ".");
+
+</script>
+
+<h2>Example of Adding Methods to an Object</h2>
+<script>
+    var person = {
+        firstName: "Guru",
+        lastName : "Prakash",
+        id       : 5566,
+        fullName : function() {
+            return this.firstName + " " + this.lastName;
+        }
+    };
+    document.write(person.fullName());
+    </script>
+
+<h2>Example of Adding a Method to a Constructor</h2>
+<script>
+    function person(first, last, age, eye) {
+        this.firstName = first;
+        this.lastName = last;
+        this.age = age;
+        this.eyeColor = eye;
+        this.fullName = function() {
+            return this.firstName + " " + this.lastName;
+        };
+    }
+    var myFather = new person("Tom", "G", 50, "blue");
+    document.write(myFather.fullName());
+    </script>
+
+
+</body>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Variables in JavaScript</title>
+</head>
+<body>
+    <h1>Variables in JavaScript</h1>
+    <p>Variables in JavaScript are containers to store data values.</p>
+    <p>JavaScript uses reserved keyword <b>var</b> to declare a variable.</p>
+    <p>Two type of variables in Javascript are <b>local</b> and <b>global</b>.</p>
+
+    <h2>Local Variables</h2>
+    <p>Variables declared within a JavaScript function, become <b>local</b> to the function.</p>
+    <script>
+        //example of local variable
+        var x = 100;
+        function myFunction() {
+            var x = 10;
+            document.write("Local var x value is " + x);
+        }
+        myFunction();
+    </script>
+
+    <h2>Global Variables</h2>
+    <script>
+        //example of global variable
+        var y = 20;
+        function myFunction() {
+            document.write("Global var y value is " + y);
+            document.write("<br>");
+            document.write("Demo - Global var x value is " + x);
+        }
+        myFunction();
+        </script>
+
+    
+    <p>Variables declared outside of any function, become <b>global</b>.</p>
+
+
+    <p>Point to note : JS variable are lossely typed. It means that a variable can hold any type of value.</p>
+
+<h1>Data type in JS</h1>
+<p>There are 5 types of data that can contain values in JS.</p>
+<ul>
+    <li>String</li>
+    <li>Number</li>
+    <li>Boolean</li>
+    <li>Object</li>
+    <li>Function</li>
+</ul>
+<p>Data type can be divided into two categories</p>
+<p>Primitive data type</p>
+<p>Example of primitive data type</p>
+<p>String</p>
+<p>Number</p>
+<p>Boolean</p>
+<p>Null</p>
+
+
+<p>Non-primitive data type</p>
+<p>Example of non-primitive data type</p>
+<p>Object</p>
+<p>Function</p>
+<p>Array</p>
+
+<h2>What are Strings?</h2>
+<p>Strings are used to store text.</p>
+<p>Strings are written inside double or single quotes.</p>
+<p>Example</p>
+
+<script>
+    document.write("<br>");
+    var name = 'Ex of String : <h1>Guru</h1>';
+    document.write(name);
+</script>
+
+<h2>What are Numbers?</h2>
+
+<p>Numbers are written without quotes.</p>
+<p>If you put quotes around a number, it will be treated as a text string.</p>
+
+<script>
+    document.write("<br>");
+    var x = 100;
+    var y = 200;
+    var z = x + y;
+    document.write("Ex of number " + z);
+</script>
+<h2>What are Booleans?</h2>
+
+<p>Booleans can only have two values: true or false.</p>
+
+<script>
+    document.write("<br>");
+    var x = 100;
+    var y = 200;
+    var z = x > y;
+    document.write("Ex of boolean " + z);
+</script>
+
+<h2>What are Objects?</h2>
+<p>Objects are variables too. But objects can contain many values.</p>
+
+<script>
+    document.write("<br>");
+    var person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue" , ph:"007" , course:"MCA"};
+    document.write("Ex of object " + person.firstName);
+    document.write("<br>");
+    document.write("Ex of object " + person.lastName);
+    document.write("<br>");
+    document.write("Ex of object " + person.age);
+    document.write("<br>");
+    document.write("Ex of object " + person.eyeColor);
+    document.write("<br>");
+    document.write("Ex of object " + person.ph);
+    document.write("<br>");
+    document.write("Ex of object " + person.course);
+</script>
+
+<h2>What are Functions?</h2>
+<p>Functions are also variables. But functions can contain code lines.</p>  
+<p>Functions are executed when they are called. This is known as invoking a function.</p>
+
+<script>
+    document.write("<br>");
+    function myFunction(p1, p2) {
+        return p1 * p2;
+    }
+    document.write("Ex of function " + myFunction(4, 3));
+</script>
+
+<h2>What are Arrays?</h2>
+<p>Arrays are special types of objects.</p>
+<p>Arrays are used to store multiple values in a single variable.</p>
+
+<script>
+    document.write("<br>");
+    var cars = ["KIA", "Volvo", "BMW" ,null];
+    document.write("Ex of array " + cars[0]);
+    document.write("<br>");
+    document.write("Ex of array " + cars[1]);
+    document.write("<br>");
+    document.write("Ex of array " + cars[2]);
+    document.write("<br>");
+    document.write("Ex of array " + cars[3]);
+</script>
+
+<h2>What are Null?</h2>
+<p>Null is a special type of data type which can have only one value : null.</p>
+
+<script>
+    document.write("<br>");
+    var x = null;
+    document.write("Ex of null " + x);
+</script>
+
+<h2>What are Undefined?</h2>
+<p>Undefined is a type of data type which can have only one value : undefined.</p>
+
+<script>
+    document.write("<br>");
+    var x;
+    document.write("Ex of undefined " + x);
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arrays in JavaScript</title>
+</head>
+<body>
+    <h2>What are array in JS?</h2>
+    <p> 
+        An array is a special variable, which can hold more than one value at a time.
+        If you have a list of items (a list of car names, for example), storing the cars in single variables could look like this:
+<br>
+        var car1 = "Saab";
+        var car2 = "Volvo";
+        var car3 = "BMW";
+<br>
+        However, what if you want to loop through the cars and find a specific one? And what if you had not 3 cars, but 300?
+<br>
+        The solution is an array!
+        An array can hold many values under a single name, and you can access the values by referring to an index number.
+    </p>
+<h2>Array example</h2>
+<h3>Synatax for Array</h3>
+<p>
+    var array_name = [item1, item2, ...];<br>
+    var cars = ["KIA", "Volvo", "BMW"];
+</p>
+
+<h2>Array Example </h2>
+<script>
+    var cars = ["KIA", "Volvo", "BMW"];
+    document.write(cars[0]);
+    document.write("<br>");
+    document.write(cars[1]);
+    document.write("<br>");
+    document.write(cars[2]);
+
+</script>
+
+<h2>Operation that can be performed on Array</h2>
+<p>
+    <ul>
+        <li>Push</li>
+        <li>Pop</li>
+        <li>Shift</li>
+        <li>Unshift</li>
+        <li>Splice</li>
+        <li>Concat</li>
+        <li>Sort</li>
+        <li>Reverse</li>
+    </ul>
+
+</p>
+
+<h2>Example of opeations that can be performed on Array</h2>
+
+<script>
+    //Push
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.write(fruits); 
+    document.write("<br>");
+    fruits.push("Kiwi");
+    document.write("Push > " + fruits);
+    document.write("<br>");
+//What did puch do to the array fruits?
+//It added a new element to the end of the array
+
+    
+    //Pop
+
+    fruits.pop();
+    document.write("Pop > " + fruits);
+    document.write("<br>");
+//What did pop do to the array fruits?
+//It removed the last element from the array
+
+
+    //Shift
+    fruits.shift();
+    document.write("Shift > " +fruits);
+    document.write("<br>");
+    //What did shift do to the array fruits?
+    //It removed the first element from the array
+
+    //Unshift
+    fruits.unshift("Lemon");
+    document.write("Unshift>" + fruits);
+    document.write("<br>");
+    //What did unshift do to the array fruits?
+    //It added a new element to the beginning of the array
+
+    //Splice
+    fruits.splice(2, 0, "Lemon", "Kiwi");   
+    document.write("Splice>" + fruits);
+    document.write("<br>");
+    //What did splice do to the array fruits?
+    //It removed "Apple" and "Mango" and added "Lemon" and "Kiwi"
+
+    //Concat
+    var myGirls = ["Ann", "Lucy", "Mary"];
+    var myBoys = ["Tom", "Jerry", "Jack"];
+    var myChildren = myGirls.concat(myBoys);
+    document.write("Concat > " + myChildren);
+    document.write("<br>");
+
+    //What did concat do to the array?
+    //It joined two arrays
+
+    //Sort
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.write(fruits);
+    document.write("<br>");
+    fruits.sort();
+    document.write("Sort>" + fruits);
+    document.write("<br>");
+    //What did sort do to the array fruits?
+    //It sorted the array in alphabetical order
+
+    //Reverse
+    var fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.write(fruits);
+    document.write("<br>");
+    //What did reverse do to the array fruits?
+    //It reversed the order of the array
+    fruits.reverse();
+    document.write("Reverse" + fruits);
+    document.write("<br>");
+
+    
+
+    
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>One example with Variables , Operators and Control Statements in JavaScript</title>
+</head>
+<body>
+<h2> Biggest of given 3 number</h2>
+<script>
+    var a=10;
+    var b=20;
+    var c=30;
+    if(a>b && a>c)
+    {
+        document.write("a is biggest");
+    }
+    else if(b>a && b>c)
+    {
+        document.write("b is biggest");
+    }
+    else
+    {
+        document.write("c is biggest");
+    }
+</script>
+
+<h2>Longest of three string</h2>
+<script>
+
+    var str1="Hello";
+    var str2="Welcome";
+    var str3="Java";
+
+    document.write("str1 length is "+str1.length+"<br>");
+    document.write("str2 length is "+str2.length+"<br>");
+    document.write("str3 length is "+str3.length+"<br>");
+
+    if(str1.length>str2.length && str1.length>str3.length)
+    {
+        document.write("str1 is longest");
+    }
+    else if(str2.length>str1.length && str2.length>str3.length)
+    {
+        document.write("str2 is longest");
+    }
+    else
+    {
+        document.write("str3 is longest");
+    }
+
+
+</script>
+
+<h2>Find lead year</h2>
+<script>
+    var year=1987;
+    if(year%4==0)
+    {
+        document.write("Leap year");
+    }
+    else
+    {
+        document.write("Not a leap year");
+    }
+
+</script>
+
+</body>
+
+</html>
