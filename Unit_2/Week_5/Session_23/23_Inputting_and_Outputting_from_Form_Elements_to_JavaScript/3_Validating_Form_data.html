@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Form validation using HTML and JS</title></head>
+<body>
+    <p>In this example we are going to have 3 field and validate them as well </p>
+    <p>
+        Name as text , Telephone as number and Email as email format.
+    </p>
+
+    <form>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder ="Enter your name" required><br><br>
+        <label for="tel">Telephone:</label>
+        <input type="text" id="tel" name="tel" placeholder="Enter Tel no - only number"><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder ="Enter your email id" required><br><br>
+        <input type="submit" value="Submit" onclick="validateForm()">
+    </form>
+
+    <script>
+        function validateForm() {
+            var name = document.getElementById("name").value;
+            var tel = document.getElementById("tel").value;
+            var email = document.getElementById("email").value;
+            if(name==""&&tel==""&&email==""){
+                alert("Please fill all the fields");
+                return false;
+            }
+
+            if(!isNaN(name)){
+                alert("Name should be in text format");
+                return false;
+            }
+            if(isNaN(tel)){
+                alert("Telephone should be in number format");
+                return false;
+            }
+            if(email.indexOf("@") == -1){
+                alert("Email should be in email format");
+                return false;
+            }
+            document.write("Name : "+name+"<br>");
+            document.write("Telephone : "+tel+"<br>");
+            document.write("Email : "+email+"<br>");
+            document.write("Form submitted successfully");
+            return true;
+
+        }
+
+
+    </script>
+
+
+
+</body>
+</html>

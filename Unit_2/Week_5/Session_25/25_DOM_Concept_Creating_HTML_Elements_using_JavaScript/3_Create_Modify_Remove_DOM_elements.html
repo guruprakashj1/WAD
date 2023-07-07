@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Removing DOM elements</title>
+    </head> 
+<body>
+<h1> Remove DOM elements</h1>  
+
+<p>Click on the button to remove the first element</p>
+
+<button onclick="myFun1()">Try it</button>
+
+<ul id="myList">
+    <li>Apple</li>
+    <li>Banana</li>
+    <li>Orange</li>
+</ul>
+
+<script>
+    function myFun1(){
+        var list = document.getElementById("myList");
+        list.removeChild(list.childNodes[0]);
+    }
+</script>
+
+<p>Click on the button to remove the last element</p>
+
+<button onclick="myFun2()">Try it</button>
+
+<ul id="myList1">
+    <li>Apple</li>
+    <li>Banana</li>
+    <li>Orange</li>
+</ul>
+
+<script>
+    function myFun2(){
+        var list = document.getElementById("myList1");
+        list.removeChild(list.lastChild);
+    }
+</script>
+
+<p>click to remove the entire list</p>
+<button onclick="myFun3()">Try it</button>
+
+<ul id="myList2">
+    <li>Apple</li>
+    <li>Banana</li>
+    <li>Orange</li>
+</ul>
+
+<script>
+    function myFun3(){
+        var list = document.getElementById("myList2");
+        list.parentNode.removeChild(list);
+    }
+</script>
+
+<p> adding css styles</p>
+<button onclick="myFun4()">Try it</button>
+<p id="demo">This is a paragraph - to chage</p>
+
+<script>
+    function myFun4(){
+        document.getElementById("demo").style.fontSize = "35px";
+        document.getElementById("demo").style.color = "red";
+    }
+</script>
+
+</body>
+</html>

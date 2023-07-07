@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Definition , Expression and Arrow function</title>
+</head>
+<body>
+<h1> Create a html table and show comparsion of declaration , Expression and Arrow function</h1>
+
+<table border="1" , width = 100 %>
+<tr>
+    <th>Function Declaration</th>
+    <th>Function Expression</th>
+    <th>Arrow Function</th>
+</tr>
+
+<tr>
+    <td>
+        <p>
+            function functionName(parameters) {
+                // code to be executed
+                // return statement
+            }   
+        </p>
+    </td>
+    <td>
+        <p>
+            var functionName = function(parameters) {
+                // code to be executed
+                // return statement
+            }   
+        </p>
+    </td>
+    <td>
+        <p>
+            var functionName = (parameters) => {
+                // code to be executed
+                // return statement
+            }   
+        </p>
+    </td>
+
+    <tr>
+<td> function declaration is hoisted </td>
+<td> function expression is not hoisted </td>
+<td> arrow function is not hoisted </td>
+    </tr>
+<tr>
+    <td>function declaration has it own name</td>
+    <td>function expression has no name</td>
+    <td>arrow function has no name</td>
+</tr>
+
+<tr>
+    <td>function declaration can be used as constructor</td>
+    <td>function expression can not be used as constructor</td>
+    <td>arrow function can not be used as constructor</td>
+</tr>
+
+<tr>
+    <td> function declaration has its own this</td>
+    <td>function expression has its own this</td>
+    <td>arrow function has no this</td>
+</tr>
+
+
+
+</table>
+<h2> Examples </h2>
+<script>
+    // //function definition 
+    // function add(a, b) {
+    //     var sum = a + b;
+    //     return sum;
+    // }
+
+    // //function expression
+    // var add = function(a, b) {
+    //     var sum = a + b;
+    //     return sum;
+    // }
+
+    //arrow function
+    var add = (a, b) => {
+        var sum = a + b;
+        return sum;
+    }
+
+    //function call
+
+    var sum = add(10, 20);
+    document.write("Sum = " + sum + "<br/>");
+
+</script>
+
+</body>
+</html>

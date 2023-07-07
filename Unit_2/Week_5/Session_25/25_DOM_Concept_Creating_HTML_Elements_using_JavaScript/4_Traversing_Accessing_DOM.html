@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Traversing DOM</title>
+    </head>
+<body>
+<h1>Traversing DOM</h1>
+<p>What is traversing the DOM ? </p>
+<p>Traversing the DOM means navigating through the DOM elements to find another element or node.</p>
+
+<p>Click the button to change the color of the first element</p>
+<button onclick="myFun1()">Try it</button>
+
+<ul id="myList">
+    <li>Apple</li>
+    <li>Banana</li>
+    <li>Orange</li>
+</ul>
+<script>
+    function myFun1(){
+        var list = document.getElementById("myList");
+        list.firstElementChild.style.color = "red";
+    }
+</script>
+<p> click the button to change the cloor of the html page</p>
+<button onclick="myFun2()">Try it</button>
+<script>
+    function myFun2(){
+        document.body.style.backgroundColor = "yellow";
+    }
+</script>
+
+<p>click the button to change the color of the last element</p>
+<button onclick="myFun3()">Try it</button>
+<ul id="myList1">
+    <li>Apple</li>
+    <li>Banana</li>
+    <li>Orange</li>
+</ul>
+<script>
+    function myFun3(){
+        var list = document.getElementById("myList1");
+        list.lastElementChild.style.color = "green";
+    }
+</script>
+
+<p>click the button to change the color of the next element</p>
+
+<button onclick="myFun4()">Try it</button>
+<p> this is a demo para</p>
+<pre>This is a demo pre tag</pre>
+<p> this is a demo para</p>
+<pre>This is a demo pre tag</pre>
+<p> this is a demo para</p>
+<pre>This is a demo pre tag</pre>
+
+<script>
+    function myFun4(){
+        var x = document.getElementsByTagName("pre");
+        var i;
+        for(i=0; i<x.length; i++){
+            x[i].style.color = "red";
+            x[i].style.fontSize = "larger";
+        }
+    }
+</script>
+
+</body>
+</html> 

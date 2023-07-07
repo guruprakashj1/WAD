@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accessing Form element</title>
+    </head>
+<body>
+    <h2>Recap of Form Elements</h2>
+    <ul>
+        <li>Label</li>
+        <p>Example of Lable : <label>Enter your name</label></p>
+        <li>Form</li>
+        <p>Example of Form : <form>
+            <label
+            >Enter your name</label>
+            <input type="text" />
+
+        </form></p>
+        <li>Input</li>
+        <p>Example of Input : <input type="text" /></p>
+
+        <li>Button</li>
+        <p>Example of Button : <input type="button" value="Button"/></p>
+         <li>Textarea</li>
+        <p>Example of Textarea : <textarea></textarea></p>
+        <li>Dropdown</li>
+        <p>Example of Dropdown : <select>
+            <option>IND</option>
+            <option >USA</option>
+            <option selected>UK</option>
+            </select></p>
+        <li>Checkbox</li>
+        <p>Example of Checkbox : <input type="checkbox" /></p>
+        <li>Radio</li>
+        <p>Example of Radio : <input type="radio" /></p>
+    </ul>
+
+    <h2>Different input types in html</h2>
+    <ul>
+        <li>Button : <input type="button" value="Button" /></li>
+        <li>Checkbox : <input type="checkbox" /></li>
+        <li>Color : <input type="color" /></li>
+        <li>Date : <input type="date" /></li>
+        <li>DateTime : <input type="datetime" /></li>
+        <li>DateTime-Local : <input type="datetime-local" /></li>
+        <li>Email : <input type="email" /></li>
+        <li>File : <input type="file" /></li>
+        <li>Hidden : <input type="hidden" /></li>
+        <li>Image : <input type="image" /></li>
+        <li>Month : <input type="month" /></li>
+        <li>Number : <input type="number" /></li>
+        <li>Password : <input type="password" /></li>
+        <li>Radio : <input type="radio" /></li>
+        <li>Range : <input type="range" /></li>
+        <li>Reset : <input type="reset" /></li>
+        <li>Search : <input type="search" /></li>
+        <li>Submit : <input type="submit" /></li>
+    </ul>
+
+    <h2>Different methods to access the form elements</h2>
+    <p>There are different methods to access the form elements</p>
+    <ul>
+        <li>getElementById</li>
+        <p>What is getElementById? getElementById is a method which is used to access the form elements by using the id of the element.</p>
+        <li>getElementsByName</li>
+        <p>What is getElementsByName? getElementsByName is a method which is used to access the form elements by using the name of the element.</p>
+        <li>getElementsByTagName</li>
+        <p>What is getElementsByTagName? getElementsByTagName is a method which is used to access the form elements by using the tag name of the element.</p>
+
+    <h2>Example for accessing getElementById</h2>
+    <form>
+        <input type="text" id="txtName5" value="Enter your name" />
+        <input type="button" id="btnSubmit" value="Submit" onclick="showName1()" />
+    </form>
+    <script>
+        function showName1() {
+            var name = document.getElementById("txtName5").value;
+            alert(name);
+        }
+    </script>
+
+    <h2>Example for accessing getElementsByName</h2>
+    <form>
+        <input type="text" name="txtName" value="Enter your name" />
+        <input type="button" name="btnSubmit" value="Submit" onclick="showName2()" />
+    </form>
+    <script>
+        function showName2() {
+            for (var i = 0; i < document.getElementsByName("txtName").length; i++) {
+                var name = document.getElementsByName("txtName")[i].value;
+                alert(name);
+            }
+            
+        }
+
+    </script>
+
+    <h2>Example for accessing getElementByTagName</h2>
+    <form>
+        <input type="text" id="txtName" value="Enter your name" />
+        <input type="button" id="btnSubmit" value="Submit" onclick="showName3()" />
+    </form>
+    <script>
+        function showName3() {
+
+            for (var i = 0; i < 100 ; i++) {
+                var name = document.get
+                ("input")[i].value;
+                alert(name);
+            }
+            
+        
+        }
+
+    </script>

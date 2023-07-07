@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <Title> Modify DOM </Title>
+    </head>
+    <body>
+        <h1> Modifying DOM object</h1>
+        <p>What is a DOM?</p>
+        <p>DOM stands for Document Object Model. Its platform and language neutral. It is used to represent and interact with HTML, XHTML and XML documents. It is a tree structure of nodes and objects.</p>
+
+        <p>How are DOM object modified?</p>
+
+        <ul>
+            <li>document.getElementById(id) - Finds an element by element id</li>
+            <li>document.getElementsByTagName(name) - Finds an element by element tag name </li>
+            <li>document.getElementsByClassName(name) - Find elements by class name</li>
+        </ul>
+
+        <h1>using id</h1>
+        <p id="demo">A Paragraph</p>
+        <button type="button" onclick="myFun1()">Try it</button>
+
+        <script>
+            function myFun1(){
+                document.getElementById("demo").innerHTML = "Paragraph changed.";
+            }
+        </script>
+
+        <p> Change the value of input field</p>
+
+        <input type="text" id="myText" value="Hello">
+        <button type="button" onclick="myFun2()">Try it</button>
+<script> 
+function myFun2(){
+
+    document.getElementById("myText").value = "Have a nice day!"
+    
+}</script>
+
+<p> example for img</p>
+
+<img id="myImage" src="image2.jpg" width="100"
+height="100">
+<button type="button" onclick="myFun3()">Try it</button>
+<script>
+    function myFun3(){
+        document.getElementById("myImage").src = "impact.png";
+    }
+
+</script>
+
+</body>
+    </html>

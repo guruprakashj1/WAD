@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function scope and closure</title>
+    <h1>Scope:</h1>
+    <p>Scope determines the accessibility (visibility) of variables.</p>
+    <p>Two types of scope in JavaScript:</p>
+    <p>1. Local scope</p>
+    <p>Local scope is created when a function starts, and deleted when the function is completed.</p>
+    <p>2. Global scope</p>
+    <p>Global scope is created when JavaScript code is executed, and deleted when the browser window is closed.</p>
+
+    <script>
+        var globalVar = "This is a global variable";
+
+        function testScope() {
+            var localVar = "This is a local variable";
+            document.write("Inside the function: " + localVar +" <br>");
+        }
+
+        testScope();
+        document.write("Outside the function: " + globalVar);
+    </script>
+
+    <script>
+        document.write("<br>"+"This is a new block"+ globalVar + "<br>");
+    </script>
+
+<h1> Closure </h1>
+<p> A closure is a function having access to the parent scope, even after the parent function has closed.</p>
+<p> This means a closure can remember and access variables and arguments of its outer function even after the function has finished.</p>
+
+<script>
+    var counter = 0;
+    function add() {
+        //what is add() returning?
+        // add returns a function
+
+        
+        function plus() {
+            counter += 1;
+        }
+        plus();
+        return counter;
+    }
+    document.write("value from add() " + add() + "<br>");
+    add();
+    add();
+    add();
+
+    document.write("after 5 times of calling add() " + add() + "<br>");
+</script>
+
+
+</head>
+
+
+</html>

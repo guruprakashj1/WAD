@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Expression and Arrow functions</title>
+</head>
+<h1>What are function expression?</h1>
+<p>A function expression is a function that is assigned to a variable.</p>  
+
+<pre>Syntax for function expression</pre>
+<pre>
+
+    var functionName = function(parameters) {
+
+        // code to be executed
+
+        // return statement
+
+    }
+</pre>
+
+<h1>What are arrow functions?</h1>
+<p>An arrow function expression is a compact alternative to a traditional function expression, but is limited and can't be used in all situations.</p>
+
+<pre>Syntax for arrow function</pre>
+<pre>
+
+    var functionName = (parameters) => {
+
+        // code to be executed
+
+        // return statement
+
+    }
+
+</pre>
+
+<h1>Function expression function example</h1>
+<script>
+
+//function expression
+var simpleInterest = function(principal, rate, time) {
+    var interest = (principal * rate * time) / 100;
+    return interest;
+}
+
+var principal = 100;
+var rate = 1;
+var time = 1;
+
+var interest = simpleInterest(principal, rate, time);
+
+document.write("Simple Interest = " + interest + "<br/>");
+
+</script>
+
+<h1>Arrow function example</h1>
+<script>
+    
+var simpleInterest = (principal, rate, time) => {
+    var interest = (principal * rate * time) / 100;
+    return interest;
+}   
+
+var principal = 100;
+var rate = 1;
+var time = 1;
+
+var interest = simpleInterest(principal, rate, time);
+
+document.write("(Arrow)Simple Interest = " + interest + "<br/>");
+
+</script>
+
+</body>
+
+</html>

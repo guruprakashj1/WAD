@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Manipulating DOM using JS</title>    
+    </head>
+    <body>
+
+<h2> What is DOM manipulation?</h2>
+<p>
+DOM manipulation is the process of changing the DOM using JavaScript. It is used to add, delete, update and style HTML elements.
+
+</p>
+
+<h2> What are NODE </h2>
+<p>Node in DOM is an object. It is used to represent HTML elements. It can be used to create, delete and modify HTML elements.</p>
+<h2> Create a para with some text</h2>
+
+<button onclick="myFun1()">Try it</button>
+
+<script>
+    function myFun1(){
+        var para = document.createElement("p");
+        var node = document.createTextNode("This is new para created using JS");
+        para.appendChild(node);
+
+        var element = document.getElementById("div1");
+        element.appendChild(para);
+    }
+
+</script>
+
+<div id="div1"></div>
+
+
+<h2> Create a new list item on button click</h2>
+
+<button onclick="myFun2()">Try it</button>
+<ul id="myList">
+    <li>Apple</li>
+    <li>Banana</li>
+    <li>Orange</li>
+    </ul>
+    <script>
+    function myFun2(){
+        var node = document.createElement("LI");
+        var textnode = document.createTextNode("Water");
+        node.appendChild(textnode);
+        document.getElementById("myList").appendChild(node);
+    }   
+</script>
+
+<h2> Remove a list item on button click</h2>
+
+<button onclick="myFun3()">Try it</button>
+<ul id="myList1">
+
+    <li>Apple</li>
+    <li>Banana</li>
+    <li>Orange</li>
+    </ul>
+    <script>
+    function myFun3(){
+        var list = document.getElementById("myList1");
+        list.removeChild(list.childNodes[0]);
+    }
+</script>
+
+
+    </body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Parameters and Return</title>
+
+    <body>
+        <h1> What is function parameter?</h1>
+        <p> A function parameter is a variable that is used to define the data that is passed into a function. </p>
+        <pre>Syntax to function parameter</pre>
+        <pre>
+            function functionName(parameters) {
+                // code to be executed
+                // return statement
+            }   
+        </pre>
+
+        <h1> What is function argument?</h1>
+        <p> A function argument is a value that is passed into a function when the function is called. </p>
+        <pre>Syntax to function argument</pre>
+        <pre>
+            functionName(arguments);
+        </pre>
+        <h1> What is function return?</h1>
+        <p> A function return is a value that is returned from a function when the function is called. </p>
+
+        <pre>Syntax for function return</pre>
+        <pre>
+            function functionName(parameters) {
+                // code to be executed
+                // return statement
+            }       
+        </pre>
+
+        <h1>Example : Day of your Date of Birth using JS</h1>
+
+        <script>
+            function dayOfDateOfBirth(dateOfBirth) {
+                var day = dateOfBirth.getDay();
+                day = day + 1
+                var dayName;
+                switch (day) {
+                    case 1:
+                        document.write(day);
+                        dayName = "Sunday";
+                        break;
+                    case 2:
+                        dayName = "Monday";
+                        break;
+                    case 3:
+                        dayName = "Tuesday";
+                        break;
+                    case 4:
+                        document.write(day);
+                        dayName = "Wednesday";
+                        break;
+                    case 5:
+                        dayName = "Thursday";
+                        break;
+                    case 6:
+                        dayName = "Friday";
+                        break;
+                    case 7:
+                        dayName = "Saturday";
+                        break;
+                }
+                return dayName;
+            }
+        </script>
+
+        <script>
+            var dateOfBirth = new Date("1981-01-21");
+            var dayName = dayOfDateOfBirth(dateOfBirth);
+            document.write("Day of Date of Birth = " + dayName + "<br/>");
+        </script>
+
+<script>
+    var dateOfBirth = new Date("2011-11-05");
+    var dayName = dayOfDateOfBirth(dateOfBirth);
+    document.write(" Ex : Day of Date of Birth = " + dayName + "<br/>");
+</script>
+
+
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ex :  Cart in JavaScript</title>
+    <body>
+<script>
+        function addToCart(product,callback){
+            setTimeout(function(){
+                cart.push(product);
+                document.write("Product added to cart <br>");
+                callback();
+            },2000);
+        }
+
+        function getCart(){
+            setTimeout(function(){
+                document.write("Cart items : " + cart);
+            },1000);
+        }
+
+        function purchase(){
+            setTimeout(function(){
+                document.write("Purchase Done ! ");
+            },5000);
+        }
+
+        var cart = [];
+        addToCart('Apple',getCart);
+        addToCart('Orange',getCart);
+        addToCart('Banana',getCart);
+        purchase();
+
+</script>
+
+    </body>
+</html>

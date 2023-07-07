@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Form - Response</title>
+    <script type="text/javascript">
+        function updateTextInput(val) {
+            document.getElementById('textInput').value=val; 
+        }
+    </script>
+</head>
+<style>
+    .error{
+        color: red;
+    }
+    .success{
+        color: green;
+    }
+</style>
+<body>
+    <form>
+        <h1>Dynamic Form - Response</h1>
+        <input type="range" name="rangeInput" min="0" max="100" onchange="updateTextInput(this.value);">
+        <input type="text" id="textInput" value="">
+    </form>
+    <p id="result"></p>
+    <script>
+        function updateTextInput(val){
+        document.getElementById('textInput').value=val;
+        if(val < 50){
+            document.getElementById('result').innerHTML = "<span class='error'>Value is less than 50</span>";
+        }else{
+            document.getElementById('result').innerHTML = "<span class='success'>Value is greater than 50</span>";
+        }
+
+    }
+    </script>
+
+</body>

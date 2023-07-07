@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Handling Form Submission</title>
+    </head>
+
+<body>
+    <h1>Example for form handling</h1>
+    <p>In this example we are going to see how onclick will change the text input color and submit the form value to the broswer></p>
+    <form>
+      <input type="text" id="myText" value="Hello">
+      <input type="button" value="ShowValue" onclick="alert(document.getElementById('myText').value)">
+      <input type="submit" value="Submit" onclick="ShowInputValue()">
+        <input type="button" value="ChangeColor" onclick="ChangeColor()">
+
+
+    </form>
+    <script>
+      function ShowInputValue(){
+          var x = document.getElementById("myText").value;
+          document.getElementById("demo").innerHTML = x;
+      }
+      function ChangeColor(){
+          document.getElementById("demo").style.color = "red";
+      }
+    </script>
+
+      <h1 id="demo"></h1>
+
+<br>
+    <h1>Various methods for FORM handling , elements and form output in Javascript</h1>
+    <ul>
+        <li>onsubmit</li>
+        <p>
+            The onsubmit event occurs when a form is submitted.
+            It only applies to the FORM element.
+            The onsubmit event is not triggered if you call the form.submit() method.
+            </p>        
+        <li>onreset</li>
+        <p>
+            The onreset event occurs when a form is reset.
+            It only applies to the FORM element.
+        
+            </p>
+
+            <li>onclick</li>
+            <p>onclick is used to perform some action when an element is clicked.</p>
+
+            <li>onchange</li>
+            <p>onchange is used to perform some actions when the user changes the value of an element</p>
+
+            <li>onfocus</li>
+            <p>onfocus is used to perform some actions when an element gets focus</p>
+
+            <li>onblur</li>
+            <p>onblur is used to perform some actions when an element loses focus</p>
+
+            <li>onkeydown</li>
+            <p>onkeydown is used to perform some actions when a key is pressed down over an element</p>
+
+            <li>onkeypress</li>
+            <p>onkeypress is used to perform some action when the the key is pressed and released</p>
+
+            <li>onkeyup</li>
+            <p>onkeyup is used to perform some action when the the key is released</p>
+
+          <h1>various methods for form output</h1>
+          <ul>
+            <li>innerHTML</li>
+            <p>innerHTML is used to get or change the content of an element, specified by the id attribute</p>
+            
+          </ul>
+
+          
+</html>

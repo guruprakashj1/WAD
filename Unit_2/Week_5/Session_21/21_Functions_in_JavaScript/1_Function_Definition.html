@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Definition</title>
+</head>
+<body>
+    <script>
+        function sayHello(name) {
+            document.write("Hello " + name + "  <br/>");
+        }
+    </script>
+
+    <script>
+        sayHello("Guru");
+        sayHello("Sai");
+    </script>
+
+    <h2>Function Definition Syntax</h2>
+    <pre>
+        function functionName(parameters) {
+            // code to be executed
+            // return statement
+        }   
+    </pre>
+
+    <h2>Function Call Syntax</h2>
+    <pre>
+        functionName(arguments);
+    </pre>
+
+    <h2>Function Declaration Syntax</h2>
+    <pre>
+        var functionName = function(parameters) {
+            // code to be executed
+            // return statement
+        }   
+    </pre>
+
+
+<h2>Function Definition Example - Simple Interest Calculator</h2>
+<pre>
+    function calculateSimpleInterest(principal, rate, time) {
+        var interest = (principal * rate * time) / 100;
+        return interest;
+    }   
+</pre>
+
+<script>
+function calculateSimpleInterest(principal, rate, time) {
+    var interest = (principal * rate * time) / 100;
+    return interest;
+}
+
+var principal = 1000;
+var rate = 5;
+var time = 2;
+var interest = calculateSimpleInterest(principal, rate, time);  
+document.write("Simple Interest 1 = " + interest + "<br/>");
+
+
+var principal = 10000;
+var rate = 14;
+var time = 24;
+var interest = calculateSimpleInterest(principal, rate, time);  
+document.write("Simple Interest 2 = " + interest);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Higher Order Functions</title>
+</head>
+<body>
+    <h2>What is Higher Order Function?</h2>
+    <p>A higher-order function is a function that takes another function as an argument or returns another function as a result.</p>
+    <h2>What is the use  of Higher order functions?</h2>
+    <p>Higher order functions are used to abstract or isolate action. This helps to reduces complexity and allows reuse code</p>
+    <script type="text/javascript">
+        //myDisplayer is a callback function
+        function myDisplayer(some) {
+            document.write("<h3>"+some+"</h3>");
+        }
+        //myCalculator is a higher order function
+        function myCalculator(num1, num2, myCallback) {
+            let sum = num1 + num2;
+            myCallback(sum);
+        }
+        myCalculator(50, 55, myDisplayer);
+    </script>
+</body>
+</html>
