@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LoadXML ex : AJAX</title>
+    </head>
+    <body>
+        <button type="button" onclick="loadDoc()">Get my data</button>
+        <button type="button" onclick="clearContent()">Clear</button>
+
+        <p id="demo"></p>
+
+        <script>
+            function loadDoc(){
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function(){
+                    if(this.readyState == 4 && this.status == 200){
+                        myFunction(this);
+                    }
+                };
+                xhttp.open("GET", "./28_Introduction_to_AJAX.xml", true);
+                xhttp.send();
+            }
+        </script>
+        <script>
+            function clearContent(){
+                document.getElementById("demo").innerHTML = "";
+            }
+        </script>
+
+        <script>
+            function myFunction(xml){
+                var i;
+                var xmlDoc = xml.responseXML;
+                var table = "<table><tr><th>TITLE</th><th>ARTIST</th></tr>";
+                var x = xmlDoc.getElementsByTagName("CD");
+                for(i = 0; i < x.length; i++){
+                    table += "<tr><td>" + x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue + "</td><td>" + x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue + "</td></tr>";
+                }
+                table += "</table>";
+                document.getElementById("demo").innerHTML = table;
+            }
+        </script>
+    </body>
+</html>

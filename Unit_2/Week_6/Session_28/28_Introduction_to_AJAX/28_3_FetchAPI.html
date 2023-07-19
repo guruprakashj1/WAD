@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FetchAPI ex : AJAX</title>  
+    </head>
+    <body>
+        <button type="button" onclick="loadDoc()">Get my data</button>
+
+        <button type="button" onclick="clearContent()">Clear</button>
+
+        <p id="demo"></p>
+
+        <script>
+            function loadDoc(){
+                fetch("./28_Introduction_to_AJAX.xml")
+                .then(function(response){
+                    return response.text();
+                })
+                .then(function(data){
+                   document.getElementById("demo").innerHTML = data;
+                });
+            }
+        </script>
+
+        <script>
+            function clearContent(){
+                document.getElementById("demo").innerHTML = "";
+            }   
+        </script>
+
+        <script>
+            function loadDoc(){
+                fetch("./28_Introduction_to_AJAX.xml")
+                .then(function(response){
+                    return response.text();
+                })
+                .then(function(data){
+                   var parser = new DOMParser();
+                   //What is parser.parseFromString()?
+                   //parser.parseFromString() is a method of DOMParser interface. It parses a string containing XML or HTML source code and returns a Document object.
+                     var xmlDoc = parser.parseFromString(data, "text/xml");
+                    var table = "<table><tr><th>TITLE</th><th>ARTIST</th></tr>";
+                    
+                        var x = xmlDoc.getElementsByTagName("CD");
+                        for(var i = 0; i < x.length; i++){
+                            table += "<tr><td>" + x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue + "</td><td>" + x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue + "</td></tr>";
+                        }
+                        
+
+                    table+="</table>";
+                    document.getElementById("demo").innerHTML = table;
+                });
+            }
+        </script>
+    </body> 
+</html>

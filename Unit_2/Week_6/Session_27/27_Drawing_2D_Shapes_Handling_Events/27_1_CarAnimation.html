@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Moving Car</title>
+        <style>
+            canvas{
+                border: 1px solid black;    
+            }
+        </style>
+    </head>
+<body>
+    <canvas id="myCanvas" width="500" height="500"></canvas>
+<script>
+//Get the canvas element
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+
+//Car variables
+let carX = 0;
+const carY = canvas.height / 2;
+const carWidth = 50;
+const carHeight = 50;
+const carSpeed = 2;
+
+//update the car position
+function updateCarPosition() {
+    carX += carSpeed;
+//If the car goes out of the canvas, reset the position
+if (carX > canvas.width) {
+    carX = 0;
+}
+}
+
+//Draw the car on the canvas
+function drawCar(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#FF0000";  
+    ctx.fillRect(carX, carY, carWidth, carHeight);
+}
+
+//Animation loop
+function animate() {
+    updateCarPosition();
+    drawCar();
+    requestAnimationFrame(animate);
+}
+
+//Draw the car on the canvas
+function drawCar(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    //Draw the car body
+    ctx.fillStyle = "#FF0000";
+    ctx.fillRect(carX, carY, carWidth, carHeight-10);
+
+    //Draw the wheels
+    ctx.fillStyle = "#000000";
+    ctx.beginPath();
+    ctx.arc(carX+10,carY+40,8,0,2*Math.PI);//Left wheel
+    ctx.arc(carX+40,carY+40,8,0,2*Math.PI);//Right wheel
+    ctx.fill();
+
+    //Draw the roof
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(carX+10, carY-20, 30, 20);
+
+    //Draw the window
+    ctx.fillStyle = "#0000FF";
+    ctx.fillRect(carX+10, carY+10, 20, 10);
+
+    //Draw the doors 
+
+    //Draw the headlights
+    
+
+    //Draw the tail lights
+
+
+    //Draw the headlights lights path in yellow color
+
+
+}
+
+animate();
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Drawing_2D_Shapes_Handling_Events</title>
+    </head>
+    <body>
+        <p>Lets draw a circle</p>
+        <canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+        </canvas>
+        <p>What is canvas ? </p>
+        <p>Canvas is an HTML element which can be used to draw graphics using JavaScript.</p>
+
+        <script>
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+            ctx.beginPath();
+            ctx.arc(95,50,40,0,2*Math.PI);
+            ctx.stroke();
+
+            </script>
+
+    <p>What is canvas.getContext()?</p>
+    <p>getContext() method returns an object which provides methods and properties for drawing on the canvas.</p>
+    <p>What is beginPath() ?</p>
+    <p>beginPath() method starts a path or resets the current path.</p>
+    <p>What is arc() ?</p>
+    <p>arc() method creates an arc/curve. It takes 6 parameters: x, y, radius, startAngle, endAngle, anticlockwise</p>
+    <p>What other methods apart from arc() can be used to draw shapes ?</p>
+    <p>moveTo() , lineTo() , stroke() and etc </p>
+<p>What is stroke() ?</p>
+<p>stroke() method actually draws the path you have defined with all those moveTo() and lineTo() methods. The default color is black.</p>
+
+<p>What is fill()?</p>
+<p>fill() method fills the current drawing (path). The default color is black.</p>
+
+<p>what is fillStyle() ?</p>
+<p>fillStyle() method sets or returns the color, gradient, or pattern used to fill the drawing.</p>
+
+<p>Lets draw a dynamic circle</p>
+<canvas id="myCanvas1" width="200" height="100" style="border:1px solid #000000;">  </canvas>
+<script>
+    var canvas = document.getElementById("myCanvas1");
+    var ctx = canvas.getContext("2d");  
+    ctx.beginPath();
+    for(var i = 0 ; i <50 ; i++)
+{   
+    ctx.arc(95,50,i,0,2*Math.PI);
+    ctx.stroke();
+    ctx.fillStyle = "red";
+    ctx.fill();
+    sleep(1);
+}
+
+function sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) 
+    {
+        if ((new Date().getTime() - start) > milliseconds)
+        {
+            break;
+        }
+    }
+}
+
+</script>
+
+<br>
+<p1> lets draw a growing circle</p1>
+<br>
+<canvas id="myCanvas2" width="200" height="100" style="border:1px solid #000000; "> 
+</canvas>
+
+<script>    
+
+    var canvas = document.getElementById("myCanvas2");
+    var context = canvas.getContext("2d");
+    context.beginPath();
+    var i=0;
+    var interval = setInterval(function(){
+        //what is set interval function?
+        //The setInterval() method calls a function or evaluates an expression at specified intervals (in milliseconds).
+        context.arc(95,50,i,0,2*Math.PI);
+        context.stroke();
+        context.fillStyle = "red";  
+        context.fill();
+        i++;
+        if(i>50){
+            clearInterval(interval);
+            //The clearInterval() method clears a timer set with the setInterval() method.
+        }
+    },100); 
+
+</script>
+
+    </body>
+
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Balloon Shooting Game</title>
+        <style>
+            #game-container {
+                width: 600px;
+                height: 400px;
+                position: relative;
+                border : 1px solid black;
+            }
+            .balloon{
+                position: absolute;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                background-color: #fa0808;
+                bottom:0;
+                transition: top 2s linear;
+            }
+        </style>
+    </head>
+
+    <body>
+<h1>Balloon Shooting Game</h1>
+<div id="game-container"></div>
+<p>Score:<span id="score">0</span></p>
+
+<script>
+    //Get the game container and the score element
+
+    var gameContainer = document.getElementById("game-container");
+    var scoreElement = document.getElementById("score");
+
+    //Initialize the score to 0
+
+    var score = 0;
+
+    //Function to handle shooting balloon
+
+    function shootBalloon(event){
+        //Get the balloon element
+        var balloon = event.target;
+
+        //Check if the balloon is in the correct position
+        if(balloon.style.top == "0px"){
+            score++;
+             //Increment the score
+            scoreElement.innerHTML = score; 
+            //Update the score element
+            gameContainer.removeChild(balloon); 
+            //Remove the balloon element from the DOM
+        }
+    }
+
+    //Event lister for shooting balloon on mouse click event
+
+    gameContainer.addEventListener("click", shootBalloon);
+
+    //Function to generate random number between min and max
+    function getRandomNumber(min, max){
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    //Function to create and animate the balloon
+function createBalloon(){
+    //Create a div element for the balloon
+    var balloon = document.createElement("div");
+    //Add the balloon class to the div element
+    balloon.classList.add("balloon");
+
+    //Set a random position for the balloon horizontally
+    var balloonX = getRandomNumber(0, gameContainer.clientWidth - 50);
+    balloon.style.left = balloonX + "px";
+
+    //set the initial position of the balloon vertically at the bottom of the game container
+
+    balloon.style.top = gameContainer.clientHeight - 50 + "px";
+
+    //animate the balloon by changing the top position to 0
+
+    setTimeout(function(){
+        balloon.style.top = "0px";
+    }, 100);
+
+    //Add the balloon element to the game container
+
+    gameContainer.appendChild(balloon);
+
+    //Set a random time interval to create the next balloon
+    setTimeout(createBalloon, getRandomNumber(1000, 3000));
+}
+    //Start the game by creating the balloon
+    createBalloon();
+</script>
+
+
+
+
+    </body>
+</html>

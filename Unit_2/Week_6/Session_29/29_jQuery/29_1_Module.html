@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery</title>
+    <script src="./jquery-3.7.0.min.js"></script>
+</head>
+<body>
+    <h1>Example as module</h1>
+    <button id="myButton">Click Me</button>
+    <script type="module">
+        $(document).ready(function(){
+            $("#myButton").click(function(){
+                $(this).text("Clicked");
+            });
+        })  
+    </script>
+</body>
+
+</html>

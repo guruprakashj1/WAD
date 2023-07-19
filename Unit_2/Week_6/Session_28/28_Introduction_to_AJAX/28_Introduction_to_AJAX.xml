@@ -1,0 +1,15 @@
+<xmlDoc>
+  <CD>
+    <ARTIST>Artist 1</ARTIST>
+    <TITLE>Title 1</TITLE>
+  </CD>
+  <CD>
+    <ARTIST>Artist 2</ARTIST>
+    <TITLE>Title 2</TITLE>
+  </CD>
+   <CD>
+    <ARTIST>Artist 3</ARTIST>
+    <TITLE>Title 3</TITLE>
+  </CD>
+  <!-- Add more CD elements as needed -->
+</xmlDoc>

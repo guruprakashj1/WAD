@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Virtual Chat Agent</title>
+        <style>
+            canvas {
+                border: 1px solid black;
+            }   
+        </style>
+    </head>
+    <body>
+        <h1>Virtual Chat Agent</h1>
+        <canvas id="chatCanvas" width="400" height="300"></canvas>
+        <form id="chatForm">
+            <input type="text" id="userInput" placeholder="Enter your message here">
+            <button type="submit">Send</button> 
+        </form>
+<script>
+    const canvas = document.getElementById("chatCanvas");
+    const ctx = canvas.getContext("2d");
+
+function drawMessage(message , isUser){
+    ctx.fillStyle = isUser ? "blue" : "red";
+    ctx.fillRect(isUser ? 20 : 150, 20, 220, 50);
+    ctx.font = "20 Arial";
+    ctx.fillStyle = "white";
+    ctx.fillText(message, isUser ? 30 : 160, 50);
+}
+
+function generateResponse(userInput){
+    const lowerInput = userInput.toLowerCase();
+    if(lowerInput.includes('hello')||lowerInput.includes('hi')){
+        return "Hello there! How can I help you?";
+    }
+    
+    if(lowerInput.includes('how are you')||lowerInput.includes('h r u')){
+        return "Fine thanks. How are you?";
+    }
+    
+    if(lowerInput.includes('what is your name')||lowerInput.includes('name plz')){
+        return "I am ur Chat bot";
+    }
+
+}
+
+
+const chatForm = document.getElementById("chatForm");
+const chatInput = document.getElementById("userInput");
+
+chatForm.addEventListener("submit", function(event){
+    event.preventDefault();
+    const message = userInput.value;
+    drawMessage(message, true);
+
+    setTimeout(function(){
+        const response = generateResponse(message);
+        drawMessage(response, false);
+    }, 500);
+    userInput.value = "";   
+});
+</script>
+
+    </body> 
+        
+        
+</html>

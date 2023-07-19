@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Introduction to AJAX</title>
+        <style>
+            .content{
+                background-color: aliceblue;
+                padding: auto;
+                margin-bottom: 10px;
+            }
+
+            .red{
+                background-color: red;
+            }
+            .blue{
+                background-color: blue;
+            }
+            .green{
+                background-color: green;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h1> AJAX example with javascript</h1>
+
+        <p>Choose the CSS Style</p>
+        <select id="color" onchange="applyStyle()">
+            <option value="default">Select a color</option>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+        </select>
+
+<button type="button" onclick="loadDoc()">Change Content</button>
+<button type="button" onclick="clearContent()">Clear</button>
+<p id="demo" class="content"></p>
+<script>
+function applyStyle(){
+    var color = document.getElementById("color").value;
+    document.getElementById("demo").className = "content " + color;
+}
+</script>
+<script>
+function loadDoc() {
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200){
+            document.getElementById("demo").innerHTML = this.responseText;
+        }
+    };
+    xhttp.open("GET", "28_Introduction_to_AJAX.txt", true);
+    xhttp.send();
+}
+
+</script>
+
+<script>
+function clearContent(){
+    document.getElementById("demo").innerHTML = "";
+}
+</script>
+
+
+    </body>
+</html>

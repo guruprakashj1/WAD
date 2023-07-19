@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<head>
+    <title>More Shapes and Handling Events</title>
+    
+</head>
+<body>
+
+    <p1>Draw a rectangle</p1>
+    <canvas id="rectangle" width="200" height="100" style="border:1px solid #000000;">
+    </canvas>
+    <script>
+        var canvas = document.getElementById("rectangle");
+        var ctx = canvas.getContext("2d");
+        ctx.beginPath();
+        ctx.rect(25,25,150,100);
+        ctx.stroke();
+    </script>
+<br>
+    <p1>Draw a triangle</p1>
+    <canvas id="triangle" width="200" height="100" style="border:1px solid #000000;">
+    </canvas>
+    <script>
+        var canvas = document.getElementById("triangle");
+        var ctx = canvas.getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(75,50);
+        ctx.lineTo(100,75);
+        ctx.lineTo(100,25);
+        ctx.stroke();
+
+        ctx.fillStyle = "red";
+        ctx.fill();
+    </script>
+
+    <br>
+    <p1>Draw a line</p1>
+    <canvas id="line" width="200" height="100" style="border:1px solid #000000;">
+
+    </canvas>
+    <script>
+        var canvas = document.getElementById("line");
+        var ctx = canvas.getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(0,0);
+        ctx.lineTo(200,100);
+        ctx.stroke();
+    </script>
+
+    <br>
+    <p> Draw app possbile shapes </p>
+    <canvas id="myCanvas4" width="200" height="100" style="border:1px solid #000000; ">
+    
+    </canvas>
+    
+    <canvas id="myCanvas5" width="200" height="100" style="border:1px solid #000000; ">
+    
+    </canvas>
+    
+    <canvas id="myCanvas6" width="200" height="100" style="border:1px solid #000000; ">
+    
+    </canvas>
+    
+    
+    <canvas id="myCanvas7" width="200" height="100" style="border:1px solid #000000; ">
+    
+    </canvas>
+    
+    <canvas id="myCanvas8" width="200" height="100" style="border:1px solid #000000; ">
+    
+    </canvas>
+    
+    <canvas id="myCanvas9" width="200" height="100" style="border:1px solid #000000; ">
+    
+    </canvas>
+    
+    <script>
+        //draw a rectangle
+        var canvas = document.getElementById("myCanvas4");
+        var context = canvas.getContext("2d");
+        context.beginPath();
+        context.rect(20,20,150,100);
+        context.stroke();
+        context.fillStyle = "red";
+        context.fill();
+        //draw a triangle
+    
+        var canvas = document.getElementById("myCanvas5");
+        var context = canvas.getContext("2d");
+        context.beginPath();
+        context.moveTo(75,50);
+        context.lineTo(100,75);
+        context.lineTo(100,25);
+        context.stroke();
+        context.fillStyle = "red";
+    
+        context.fill();
+    
+        //draw a line
+        var canvas = document.getElementById("myCanvas6");
+        var context = canvas.getContext("2d");
+        context.beginPath();
+        context.moveTo(0,0);
+        context.lineTo(200,100);
+        context.stroke();
+    
+        //draw a circle
+        var canvas = document.getElementById("myCanvas7");
+        var context = canvas.getContext("2d");
+        context.beginPath();
+    
+        context.arc(95,50,40,0,2*Math.PI);
+        context.stroke();
+        context.fillStyle = "red";
+        context.fill();
+    
+        //draw a text
+        var canvas = document.getElementById("myCanvas8");
+        var context = canvas.getContext("2d");
+        context.font = "30px Arial";
+        context.fillText("Hello World",10,50);
+    
+        //draw a gradient
+        var canvas = document.getElementById("myCanvas9");
+        var context = canvas.getContext("2d");
+        var grd = context.createLinearGradient(0,0,200,0);
+        grd.addColorStop(0,"red");
+        grd.addColorStop(1,"white");
+    
+        context.fillStyle = grd;
+        context.fillRect(10,10,150,80);
+    
+        //draw a pattern
+        var canvas = document.getElementById("myCanvas9");
+        var context = canvas.getContext("2d");
+        var img = document.getElementById("scream");
+        var pat = context.createPattern(img,"repeat");
+    
+        context.rect(0,0,150,100);
+        context.fillStyle = pat;
+        context.fill();
+    
+        
+           
+    </script>
+<p>Handling events and shapes</p>
+<canvas id="myCanvas10" width="200" height="100" style="border:1px solid #000000; "></canvas>
+
+<script>
+    var x = 0;
+    var y = 0 ;
+    var canvas = document.getElementById("myCanvas10");
+    var context = canvas.getContext("2d");
+    context.beginPath();
+    context.arc(95,50,40,0,2*Math.PI);
+    context.stroke();
+    context.fillStyle = "red";
+    context.fill();
+    canvas.addEventListener("click",function(event){
+
+         x = event.clientX;
+         y = event.clientY;
+
+         var rect = canvas.getBoundingClientRect();
+            x = x - rect.left;
+            y = y - rect.top;
+
+        var distant = Math.sqrt(Math.pow((x-95),2)+Math.pow((y-50),2));
+
+        if(distant <=40){
+            alert("clicked on circle");
+        }
+        else{
+            alert("clicked outside circle");
+        }
+
+    });
+
+</script>
+
+
+</body>
