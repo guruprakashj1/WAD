@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Eniv setup and User profile page</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <script src="./31_script.js"></script>
+    </head>
+    <body ng-app="myApp">
+        <p>What is ng-app?</p>
+        <p>ng-app is a directive that tells AngularJS that the <body> element is the "owner" of an AngularJS application.</p>
+        <p> What are {{}} in angularjs?</p>
+        <p>{{ }} are called expressions. They are used to bind application data to html. </p>
+        <p>What is ng-controller?</p>
+        <p>ng-controller is a directive that attaches a controller class to the view. This is a key aspect of how angular supports the principles behind the Model-View-Controller design pattern.</p>
+
+        <p>What is $scope?</p>
+        <p>&scope is a javascript object that is used to pass data between controller and view.</p>
+
+        <div ng-controller="myController">
+            <img ng-src ="{{bio.photo}}" height="100" width="100" alt="my photo"></p>
+
+           {{bio.name}} and is {{ bio.age }} year old.
+
+        </div>
+    </body>
+</html>

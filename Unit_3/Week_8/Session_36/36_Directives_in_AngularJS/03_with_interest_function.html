@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AngularJS Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope) {
+            $scope.data = {
+                principle: 1000,
+                rate: 10,
+                time: 1
+            };
+
+            $scope.calculateInterest = function() {
+                $scope.data.interest = ($scope.data.principle * $scope.data.rate * $scope.data.time) / 100;
+            };
+        });
+    </script>
+
+    <p>ng-app with appname and the value from the script above</p>
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <p>Principle Amount: <input type="text" ng-model="data.principle" ng-change="calculateInterest()"></p>
+        <p>Rate of Interest: <input type="text" ng-model="data.rate" ng-change="calculateInterest()"></p>
+        <p>Time: <input type="text" ng-model="data.time" ng-change="calculateInterest()"></p>
+        <p>Simple Interest: {{ data.interest }}</p>
+        <p ng-if="data.interest > 100">Interest High</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<div>
+    <h1>Flight Details</h1>
+  
+    <div ng-if="flightDetails.flight">
+      <h2>Flight Number: {{ flightDetails.flight.flightNumber }}</h2>
+      <p>Departure: {{ flightDetails.flight.departure }}</p>
+      <p>Arrival: {{ flightDetails.flight.arrival }}</p>
+      <p>Departure Time: {{ flightDetails.flight.departureTime }}</p>
+      <p>Arrival Time: {{ flightDetails.flight.arrivalTime }}</p>
+      <p>Price: {{ flightDetails.flight.price }}</p>
+  
+      <button ng-click="flightDetails.bookFlight()">Book Now</button>
+    </div>
+  
+    <div ng-if="!flightDetails.flight">
+      <p>Loading flight details...</p>
+    </div>
+  </div>
+  

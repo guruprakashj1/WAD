@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+        <title> Demo on Voting age - AngularJS</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script src="./script.js"></script>
+    </head>
+    <body> 
+        <div ng-controller = "myController">    
+         <p>
+            <img src="./photo.png" alt="Users pic" width="200" height="200">
+         </p>   
+         <p ng-model = "bio.fname">Name</p>
+         <p>{{bio.fname}}</p>
+         <p>Enter your age:<input type="text" ng-model = "bio.age"></p>
+            //add a logic for checking the age
+            <br>
+
+            <span ng-if="bio.age > 18">You are eligible to vote</span>
+<br>
+         <button ng-click = "sayHello()">Click Me</button>
+
+         <p ng-bind="message" id="demo"></p>
+
+        </div>
+
+    </body>
+
+</html>

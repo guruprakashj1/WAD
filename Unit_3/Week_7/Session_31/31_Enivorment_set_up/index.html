@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Hello world</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <script>
+            var app = angular.module('myApp', []);
+            app.controller('myControl', function($scope) {
+                $scope.message = "Hello World";
+            }); 
+        </script>
+    </head>
+    <body>
+        <div ng-app="myApp">
+            <div ng-controller="myControl">
+                <h1>{{message}}</h1>
+            </div>
+        </div>
+    </body>
+</html>

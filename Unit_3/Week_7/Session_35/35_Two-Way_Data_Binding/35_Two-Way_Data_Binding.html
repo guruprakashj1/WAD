@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Two way data binding in anularjs - Guess the number game.</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="GuessController">
+<h1>Guess the number</h1>
+<p>Guess the number between 1 and 100:</p>
+<input type="text" ng-model="guess" ng-change="checkGuess()" />
+<p>{{message}}</p>
+<p> Total Guesses : {{guessCount}}</p>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('GuessController', function($scope) {
+        var min = 1;
+        var max = 100;
+        var random = Math.floor(Math.random() * max) + min;
+        $scope.message = "Guess a number between " + min + " and " + max;
+        $scope.guessCount = 0;
+        $scope.checkGuess = function() {
+            $scope.guessCount++;
+            if ($scope.guess > random) {
+                $scope.message = "Too high";
+            } else if ($scope.guess < random) {
+                $scope.message = "Too low";
+            } else if ($scope.guess == random) {
+                $scope.message = "Correct!";
+                if ($scope.guessCount < 5) {
+                    $scope.message += " You're a mind reader!";
+                } else if ($scope.guessCount < 10) {
+                    $scope.message += " Most impressive.";
+                } else {
+                    $scope.message += " You can do better than that.";
+                }
+            } else {
+                $scope.message = "Please enter a number";
+            }
+        }
+    });
+
+
+</script>
+
+</body>
+
+</html>

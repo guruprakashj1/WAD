@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Grading App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="GradingController">
+  <h1>Grading App</h1>
+
+  <div>
+    <label for="name">Student Name:</label>
+    <input type="text" id="name" ng-model="student.name">
+  </div>
+
+  <div ng-repeat="subject in subjects">
+    <label for="mark{{$index+1}}">Mark ({{subject}}):</label>
+    <input type="number" id="mark{{$index+1}}" ng-model="student.marks[$index]">
+  </div>
+
+  <div>
+    <button ng-click="calculateGrade()">Calculate Grade</button>
+  </div>
+
+  <div ng-show="showGrade">
+    <h2>Student Grade</h2>
+    <p>Name: {{ student.name }}</p>
+    <p>Average Mark: {{ student.averageMark }}</p>
+    <p>Grade: {{ student.grade }}</p>
+  </div>
+
+  <script>
+    var app = angular.module('myApp', []);
+
+    app.controller('GradingController', function($scope) {
+      $scope.student = {
+        name: '',
+        marks: [0, 0, 0, 0, 0, 0],
+        averageMark: null,
+        grade: ''
+      };
+
+      $scope.subjects = ['Subject 1', 'Subject 2', 'Subject 3', 'Subject 4', 'Subject 5', 'Subject 6'];
+
+      $scope.calculateGrade = function() {
+        var total = 0;
+        for (var i = 0; i < $scope.student.marks.length; i++) {
+          total += $scope.student.marks[i];
+        }
+        $scope.student.averageMark = total / $scope.student.marks.length;
+
+        if ($scope.student.averageMark >= 90) {
+          $scope.student.grade = 'A';
+        } else if ($scope.student.averageMark >= 80) {
+          $scope.student.grade = 'B';
+        } else if ($scope.student.averageMark >= 70) {
+          $scope.student.grade = 'C';
+        } else if ($scope.student.averageMark >= 60) {
+          $scope.student.grade = 'D';
+        } else {
+          $scope.student.grade = 'F';
+        }
+
+        $scope.showGrade = true;
+      };
+    });
+  </script>
+</body>
+</html>

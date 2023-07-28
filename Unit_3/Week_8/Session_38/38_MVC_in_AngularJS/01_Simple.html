@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lets buils an ATM example with MVC in AngularJS </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>    
+    </head>
+    <body>
+        <div ng-app="myApp" ng-controller="myCtrl">
+
+<h1>ATM</h1>
+            <p>In the ATM example we will demonstrate balance enquire , credit and debit</p>
+            <p>Balance : {{balance}}</p>
+            <p>Amount : <input type="text" ng-model="amount"></p>
+            <button ng-click="credit()">Credit</button>
+            <button ng-click="debit()">Debit</button>
+        </div>
+        <script>
+            var app = angular.module('myApp', []);
+            app.controller('myCtrl', function($scope) {
+                $scope.balance = 1000;
+                $scope.credit = function() {
+                    $scope.balance = $scope.balance + parseInt($scope.amount);
+                };
+                $scope.debit = function() {
+                    $scope.balance = $scope.balance - parseInt($scope.amount);
+                };
+            });
+        </script>
+
+        
+    </body>
+    </html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AngularJS Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <h2>Enter Your Name:</h2>
+        <input type="text" ng-model="name" placeholder="Your name">
+        <p>Hello, {{ name }}!</p>
+    </div>
+    <div>
+        <p>What is ng-model?</p>
+        <p>ng-model binds the value of HTML controls (input, select, textarea) to application data.</p>
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope) {
+            $scope.name = "";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Routing example : City and Capital   </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
+
+</head>
+<body>
+<h1>Let build an example when i click the city the capital is show with a message i love {{City}}</h1>
+
+<a href="#!/">Main</a> 
+<a href="#!Chennai">Coimbatore</a>
+<a href="#!Delhi">Agra</a>
+
+<div ng-app="myApp" ng-controller="myCtrl" ng-init="City='India'">
+    <p>Click on the links to change the content.</p>
+
+    <div ng-view></div>
+
+    <script>
+        var app = angular.module("myApp", ["ngRoute"]);
+        app.config(function($routeProvider) {
+            $routeProvider
+                .when("/", {
+                    templateUrl : "main.htm"
+                })
+                .when("/Chennai", {
+                    templateUrl : "Chennai.htm"
+                })
+                .when("/Delhi", {
+                    templateUrl : "Delhi.htm"
+                });
+        });
+        app.controller("myCtrl", function ($scope) {
+            $scope.City = "India";
+            $scope.Text = "I like";
+        });
+    </script>
+
+    <script type="text/ng-template" id="main.htm">
+        <h1>Main</h1>
+        <p>Click on the links to change this content</p>
+        <p>{{Text}} {{City}}</p>
+    </script>
+
+    <script type="text/ng-template" id="Chennai.htm">
+        <h1>Chennai</h1>
+        <p>{{Text}} Chennai</p>
+    </script>
+
+    <script type="text/ng-template" id="Delhi.htm">
+        <h1>Delhi</h1>
+        <p>{{Text}} Delhi</p>
+    </script>
+
+
+
+
+</div>
+
+
+
+</body>
+</html>

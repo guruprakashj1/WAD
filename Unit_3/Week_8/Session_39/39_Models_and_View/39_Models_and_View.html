@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Demo for Model in AngularJS</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    </head>
+    <body>
+        <p>What is a model in AngularJS?</p>
+        <p>Model is the data that is used to display the view.</p>
+        <p>Model is just a JavaScript object which holds the data and these data are displayed in the view.</p>
+        <p>Model is created by the controller.</p>
+        <p>Model is referred to as $scope in AngularJS.</p>
+        <pre>Example synatx for model</pre>
+        <pre>
+            var app = angular.module('myApp', []);
+            app.controller('myCtrl', function($scope) {
+                $scope.firstName = "John";
+                $scope.lastName = "Doe";
+            });
+        </pre>
+ 
+
+        <p>What are views in AngularJS?</p>\
+        <p>Views are the HTML that is rendered in the browser.</p>  
+        <pre>Example synatx for view</pre>
+        <pre>
+            <div ng-app="myApp" ng-controller="myCtrl">
+                First Name: <input type="text" ng-model="firstName"><br>
+                Last Name: <input type="text" ng-model="lastName"><br>
+                <br>
+                Full Name: {{firstName + " " + lastName}}
+            </div>
+        </pre>
+ 
+        
+
+    </body>
+</html>

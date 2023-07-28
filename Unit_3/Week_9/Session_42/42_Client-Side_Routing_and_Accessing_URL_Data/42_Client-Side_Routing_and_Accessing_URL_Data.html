@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AngularJS Routing Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
+    </head>
+<body ng-app="myApp">
+    <h1>AngularJS Routing Example</h1>
+    <p>Click on the links to navigate to the page</p>
+    <a href="#!/">Main</a>
+    <a href="#!red">Red</a>
+    <a href="#!green">Green</a>
+    <a href="#!blue">Blue</a>
+    <div ng-view></div>
+    <script>
+        var app = angular.module("myApp", ["ngRoute"]);
+        app.config(function($routeProvider) {
+            $routeProvider
+            .when("/", {
+                templateUrl : "main.htm"
+            })
+            .when("/red", {
+                template : "<h1> RED </h1>"
+            })
+            .when("/green", {
+                templateUrl : "./red.htm"
+            })
+            .when("/blue", {
+                templateUrl : "blue.htm"
+            });
+        });
+    </script>
+
+    
+<p>Lets add a template for red.htm</p>
+
+<div ng-app="" ng-init="myCol='red'">
+    <input style="background-color:{{myCol}}" ng-model="myCol">
+
+
+
+
+</body>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Explain Controllers in AngularJS</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    </head>
+    <body>
+        <p>What is a controller in AngularJS?</p>
+        <p>Controller is a JavaScript function which is bound to a particular scope.</p>
+        <p>Controller is the place where we write the business logic.</p>
+        <p>Controller is created by the developer.</p>
+        <p>Controller is referred to as $scope in AngularJS.</p>
+        <pre>Example synatx for controller</pre>
+        <pre>
+            var app = angular.module('myApp', []);
+            app.controller('myCtrl', function($scope) {
+                $scope.firstName = "John";
+                $scope.lastName = "Doe";
+            });
+        </pre>
+        <p>What is a scope in AngularJS?</p>
+        <p>Scope is an object that refers to the application model.</p>
+        <p>Scope is an execution context for expressions.</p>
+        <p>Scopes are arranged in hierarchical structure which mimic the DOM structure of the application.</p>
+        <p>Scopes can watch expressions and propagate events.</p>
+        <p>Scopes are objects that refer to the model.</p>
+        <p>Scopes can be nested to limit access to the properties of application.</p>
+        <p>Scope is referred to as $scope in AngularJS.</p>
+        <pre>Example synatx for scope</pre>
+        <pre>
+            <div ng-app="myApp" ng-controller="myCtrl">
+                First Name: <input type="text" ng-model="firstName"><br>
+                Last Name: <input type="text" ng-model="lastName"><br>
+                <br>
+                Full Name: {{firstName + " " + lastName}}
+            </div>
+        </pre>
+        <script>
+            var app = angular.module('myApp', []);
+            app.controller('myCtrl', function($scope) {
+                $scope.firstName = "John";
+                $scope.lastName = "Doe";
+            });
+        </script>
+
+    </body>
+</html>

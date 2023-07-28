@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Explain Services in AngularJS</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    </head>
+    <body>
+        <h1>Demo for services in AngularJS</h1>
+
+        <p>Let build a simple example for demonstrating services</p>
+
+        
+        <div ng-app="myApp" ng-controller="myCtrl">
+        <p>The url of this page is:</p>
+        <h3>{{myUrl}}</h3>
+        <div>
+            Lets add a ngif directive to check if the url contains the word Services
+        </div>
+        <div ng-if="myUrl.includes('Services')">
+            <h3>Yes, the url contains the word Services</h3>
+        </div>
+        
+        <p>This example uses the built-in $location service to get the absolute url of the page.</p>
+        
+        <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope, $location) {
+            $scope.myUrl = $location.absUrl();
+        });
+        </script>
+        
+       
+        
+       
+
+    </body>
+</html>

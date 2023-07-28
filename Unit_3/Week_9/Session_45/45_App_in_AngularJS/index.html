@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Flight Search and Booking</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #444;
+      padding: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #444;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+    }
+
+    .container {
+      margin: 20px auto;
+      max-width: 600px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .flight-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .flight-item {
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+    }
+
+    .flight-item h3 {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body ng-app="flightApp">
+
+  <!-- Main Content Area -->
+  <div ng-controller="MainController as main">
+
+    <!-- Header Component -->
+    <div ng-include="'header.html'"></div>
+
+    <!-- Navigation Component -->
+    <div ng-include="'navigation.html'"></div>
+
+    <div ng-view></div>
+
+    <!-- Footer Component -->
+    <div ng-include="'footer.html'"></div>
+
+    <script type="text/ng-template" id="header.html">
+      <header>
+        <h1>Flight Search and Booking</h1>
+      </header>
+    </script>
+
+    <script type="text/ng-template" id="navigation.html">
+      <nav>
+        <a href="#/">Home</a>
+        <a href="#/flight-search">Flight Search</a>
+      </nav>
+    </script>
+
+    <script type="text/ng-template" id="footer.html">
+      <footer>
+        <p>&copy; 2023 Flight Search and Booking</p>
+      </footer>
+    </script>
+
+
+    <div ng-view></div>
+
+    <!-- Footer Component -->
+    <div ng-include="'footer.html'"></div>
+
+    <script type="text/ng-template" id="header.html">
+      <header>
+        <h1>Flight Search and Booking</h1>
+      </header>
+    </script>
+
+    <script type="text/ng-template" id="navigation.html">
+      <nav>
+        <a href="#/">Home</a>
+        <a href="#/flight-search">Flight Search</a>
+      </nav>
+    </script>
+
+    <script type="text/ng-template" id="footer.html">
+      <footer>
+        <p>&copy; 2023 Flight Search and Booking</p>
+      </footer>
+    </script>
+
+    <script>
+      angular.module('flightApp', ['ngRoute']);
+
+      angular.module('flightApp').config(function($routeProvider) {
+        $routeProvider
+          .when('/', {
+            templateUrl: 'home.html'
+          })
+          .when('/flight-search', {
+            templateUrl: 'flight-search.html',
+            controller: 'FlightSearchController',
+            controllerAs: 'flightSearch'
+          })
+          .when('/flight/:flightId', {
+            templateUrl: 'flight-details.html',
+            controller: 'FlightDetailsController',
+            controllerAs: 'flightDetails'
+          })
+          .when('/booking/:flightId', {
+            templateUrl: 'flight-booking.html',
+            controller: 'FlightBookingController',
+            controllerAs: 'flightBooking'
+          })
+          .otherwise({
+            redirectTo: '/'
+          });
+      });
+
+      angular.module('flightApp').controller('MainController', function() {
+        // MainController code here (if needed)
+        var vm = this;
+        vm.message = "Welcome to the Flight Search and Booking App!";
+      });
+
+      angular.module('flightApp').controller('FlightSearchController', function() {
+        // Flight Search Controller code here
+        var vm = this;
+        vm.flightSearch = {
+          departure: '',
+          arrival: '',
+          date: '',
+          passengers: 1,
+          flightResults: []
+        };
+
+        vm.searchFlights = function() {
+          // Flight search logic here
+          // Simulate API call or fetch data from the server
+          // For this example, we'll just use some sample data
+          vm.flightSearch.flightResults = [
+            {
+              id: 1,
+              flightNumber: 'ABC123',
+              departure: 'New York',
+              arrival: 'Los Angeles',
+              price: 200
+            },
+            {
+              id: 2,
+              flightNumber: 'XYZ789',
+              departure: 'Chicago',
+              arrival: 'San Francisco',
+              price: 250
+            }
+          ];
+        };
+      });
+
+      angular.module('flightApp').controller('FlightDetailsController', function($routeParams) {
+        // Flight Details Controller code here
+        var vm = this;
+        // Fetch flight details using the flightId from $routeParams
+        // For this example, we'll just use some sample data
+        vm.flight = {
+          id: $routeParams.flightId,
+          flightNumber: 'ABC123',
+          departure: 'New York',
+          arrival: 'Los Angeles',
+          departureTime: '08:00 AM',
+          arrivalTime: '11:00 AM',
+          price: 200
+        };
+      });
+
+      angular.module('flightApp').controller('FlightBookingController', function() {
+        // Flight Booking Controller code here
+        var vm = this;
+        // Implement flight booking functionality here
+        vm.bookFlight = function() {
+          // Booking logic here
+          // For this example, we'll just show an alert
+          alert('Flight booked successfully!');
+        };
+      });
+
+    </script>
+  </div>
+</body>
+
+</html>
