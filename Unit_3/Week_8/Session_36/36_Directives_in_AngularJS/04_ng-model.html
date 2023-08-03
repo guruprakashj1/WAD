@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>AngularJS Example</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-</head>
-<body>
-    <div ng-app="myApp" ng-controller="myCtrl">
-        <h2>Enter Your Name:</h2>
-        <input type="text" ng-model="name" placeholder="Your name">
-        <p>Hello, {{ name }}!</p>
-    </div>
-    <div>
-        <p>What is ng-model?</p>
-        <p>ng-model binds the value of HTML controls (input, select, textarea) to application data.</p>
+    <head>
+    <title>
+        Learn about ng-model
+    </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    </head>
+    <body>
+        <h1>What is ng-model?</h1>
+        <p>ng-model is a directive which binds the value of HTML controls (input, select, textarea) to application data.</p>
+        <p>ng-model is used for two way binding, i.e. if you change the value in the HTML control, the value of the variable in the angularjs code will also change and vice versa.</p>
+        <div ng-app="myApp" ng-controller="myCtrl">
+        <h2>Please, Enter you name :</h2>
+        <input type="text" ng-model="name" placeholder="Enter your name here inside the text box">
+        <h1>Hello {{name}} ! </h1>
     </div>
 
-    <script>
-        var app = angular.module('myApp', []);
-        app.controller('myCtrl', function($scope) {
-            $scope.name = "";
-        });
-    </script>
-</body>
+        <script>
+            var app = angular.module('myApp',[]);
+            app.controller('myCtrl',function($scope){
+                $scope.name = "";
+            });
+        </script>
+
+    </body>
 </html>

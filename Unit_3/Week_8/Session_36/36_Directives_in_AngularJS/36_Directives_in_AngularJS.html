@@ -1,52 +1,44 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Directives in AngularJS</title>
+        <title>Learn about Directives</title>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     </head>
     <body>
-        <h1> Lets buils an example that demonstartes the use of directives in AngularJS</h1>
+        <h1>What is directive in AngularJS?</h1>
+        <p>Directives are markers on DOM elements (such as elements, attributes, css, and more). These can be used to create custom HTML tags that serve as new, custom widgets. AngularJS has built-in directives (ngBind, ngModel...) to perform most of the tasks.</p>
 
-        <h2>List of commonly used directives in AngularJS</h2>
+        <p>AngularJS directives are extended HTML attributes with the prefix ng-.
+        </p>
+
+        <h1>List of Commonly used Directives in AngularJS</h1>
 
         <ul>
             <li>ng-app</li>
-            <p>What is ng-app?</p>
-            <p>ng-app directive is used to define the root element of an AngularJS application. It is used to auto-bootstrap an AngularJS application. AngularJS application cannot be started without using this directive.</p>
-            <li>ng-model</li>
-            <p>What is ng-model?</p>
-            <p>ng-model directive is used to bind the value of HTML controls (input, select, textarea) to application data.</p>
-            <li>ng-bind</li>
-            <p>ng-bind directive is used to bind the innerHTML of an element to application data.</p>
-            <li>ng-init</li>
-            <li>ng-repeat</li>
-            <li>ng-switch</li>
-            <li>ng-style</li>
-            <li>ng-if</li>
-            <li>ng-show</li>
-            <li>ng-hide</li>
-            <li>ng-click</li>
-            <li>ng-submit</li>
-            <li>ng-animate</li>
-            <li>ng-class</li>
-            <li>ng-view</li>
-            <li>ng-include</li>
-            <li>ng-switch</li>
+            <p>Defines the root element of an AngularJS application, and it is typically placed near the root element of the page - e.g. on the 'html' or 'body'tags.</p>
             <li>ng-controller</li>
+            <p>Defines the application controller class.</p>
+            <li>ng-init</li>
+            <p>ng-init helps to initialization values for an application.</p>
+            <li>ng-model</li>
+            <p>ng-model binds the value of HTML controls (input, select, textarea) to application data.</p>
+            <li>ng-bind</li>
+            <p>ng-bind binds the innerHTML of the element to application data.</p>
             <li>ng-repeat</li>
-            <li>ng-cloak</li>
-            <li>ng-bind-html</li>
-            <li>ng-bind-template</li>
-            <li>ng-disabled</li>
-            <li>ng-open</li>
-            <li>ng-readonly</li>
-            <li>ng-selected</li>
-            <li>ng-src</li>
-            <li>ng-srcset</li>
-            <li>ng-href</li>
-            <li>ng-trustAs</li>
+            <p>ng-repeat repeats an HTML element for each item in an array or an object.</p>
+            <li>ng-if</li>
+            <p>ng-if removes the HTML element if the expression evaluates to false.</p>
+            <li>ng-switch</li>
+            <p>ng-switch is used to conditionally swap DOM structure on your template based on a scope expression.</p>
+            <li>ng-show</li>
+            <p>ng-show shows the HTML element if the expression evaluates to true.</p>
+            <li>ng-hide</li>
+            <p>ng-hide hides the HTML element if the expression evaluates to true.</p>
+            <li>ng-click</li>
+            <p>ng-click allows you to specify custom behavior when an element is clicked.</p>
+            <li>ng-style</li>
+            <p>ng-style allows you to set CSS style on an HTML element conditionally.</p>
         </ul>
 
     </body>
-
 </html>

@@ -1,40 +1,60 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Lets buils an ATM example with MVC in AngularJS </title>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>    
+        <title>Lets build - Credit, Debit, and Balance enquiry</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     </head>
-    <body>
-        <div ng-app="myApp" ng-controller="myCtrl">
-            
-        <p>Lets add a transaction history</p>
-        <div ng-app="myApp" ng-controller="myCtrl">
-            <h1>ATM</h1>
-            <p>In the ATM example we will demonstrate balance enquire , credit and debit</p>
-            <p>Balance : {{balance}}</p>
-            <p>Amount : <input type="text" ng-model="amount"></p>
+    <body ng-app="myApp" ng-controller="myCtrl">
+        <h1>Accounts Page</h1>
+        <h2>Balance: {{balance}}</h2>
+        <p>Amount: <input type="text" ng-model="amount"></p>
+        <p>
             <button ng-click="credit()">Credit</button>
             <button ng-click="debit()">Debit</button>
-            <h2>Transaction History</h2>
-            <ul>
-                <li ng-repeat="x in transactions">{{x}}</li>
-            </ul>
-        </div>
+            <button ng-click="showBalance()">Show Balance</button>
+        </p>
+
+        <h2>Transcation History:</h2>
+        <ul>
+            <li ng-repeat="transaction in transactionHistory">
+                {{transaction.time}} - {{transaction.type}} - {{transaction.amount}}
+        </ul>
+
         <script>
             var app = angular.module('myApp', []);
-            app.controller('myCtrl', function($scope) {
+            app.controller('myCtrl', function ($scope) {
                 $scope.balance = 1000;
-                $scope.transactions = [];
-                $scope.credit = function() {
-                    $scope.balance = $scope.balance + parseInt($scope.amount);
-                    $scope.transactions.push("Credit : " + $scope.amount);
+                $scope.transactionHistory = [];
+    
+                $scope.credit = function () {
+                    var amountCredited = parseInt($scope.amount);
+                    $scope.balance += amountCredited;
+                    $scope.transactionHistory.push({
+                        time: new Date().toLocaleString(),
+                        type: 'Credit',
+                        amount: amountCredited
+                    });
                 };
-                $scope.debit = function() {
-                    $scope.balance = $scope.balance - parseInt($scope.amount);
-                    $scope.transactions.push("Debit : " + $scope.amount);
+    
+                $scope.debit = function () {
+                    var amountToDebit = parseInt($scope.amount);
+                    if (amountToDebit > $scope.balance) {
+                        alert("Insufficient Balance");
+                        return;
+                    } else {
+                        $scope.balance -= amountToDebit;
+                        $scope.transactionHistory.push({
+                            time: new Date().toLocaleString(),
+                            type: 'Debit',
+                            amount: amountToDebit
+                        });
+                    }
+                };
+    
+                $scope.showBalance = function () {
+                    alert("Balance is: " + $scope.balance);
                 };
             });
         </script>
-
     </body>
 </html>

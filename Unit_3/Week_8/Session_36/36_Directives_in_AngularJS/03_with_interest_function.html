@@ -9,7 +9,7 @@
         var app = angular.module('myApp', []);
         app.controller('myCtrl', function($scope) {
             $scope.data = {
-                principle: 1000,
+                principle: 100000,
                 rate: 10,
                 time: 1
             };
@@ -27,7 +27,7 @@
         <p>Rate of Interest: <input type="text" ng-model="data.rate" ng-change="calculateInterest()"></p>
         <p>Time: <input type="text" ng-model="data.time" ng-change="calculateInterest()"></p>
         <p>Simple Interest: {{ data.interest }}</p>
-        <p ng-if="data.interest > 100">Interest High</p>
-    </div>
+        <p ng-if="data.interest >= 100">You Interest is high - Think once before taking a loan</p>
+
 </body>
 </html>

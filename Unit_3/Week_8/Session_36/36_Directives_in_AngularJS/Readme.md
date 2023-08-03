@@ -1,30 +1,11 @@
-Example MVC in AngularJS
+What is directive in AngularJS?
 
-## 1. MVC in AngularJS
-- AngularJS is a MVC framework for web application development.
+- AngularJS directives are extended HTML attributes with the prefix ng-.
 
-- MVC stands for Model, View and Controller.
+- The ng-app directive initializes an AngularJS application.
 
-- Model: In angualejs Model represents an object or data. It can also represent a database table or some object. It can also be some kind of user defined data structure.
+- The ng-model directive binds the value of HTML controls (input, select, textarea) to application data.
 
-- View: View represents the visualization of the data that model contains.
+- The ng-bind directive binds application data to the HTML view.
 
-- Controller: Controller acts on both model and view. It controls the data flow into model object and updates the view whenever data changes. It keeps view and model separate.     
-
-## 2. AngularJS MVC Architecture
-- AngularJS MVC architecture is based on the following three important parts.
-
-- Model: Model represents the shape of the data and business logic. It maintains the data of the application. Model objects retrieve and store model state in the persistance store like a database.
-
-- View: View is a user interface. View display data using model to the user and also enables them to modify the data.
-
-- Controller: Controller handles the user request. Typically, user interact with view, view raise events, controller response to those events and interact with model and update the view as per model state.
-
-## 3. AngularJS MVC Example
-- Let's see the simple example of AngularJS MVC architecture.
-
-- In this example, we are going to create a simple student model and view. The controller will handle the request and update the view as per model state.
-
-- We are going to create a student model and view. The controller will handle the request and update the view as per model state.
-
-
+- The ng-init directive initializes AngularJS application variables.

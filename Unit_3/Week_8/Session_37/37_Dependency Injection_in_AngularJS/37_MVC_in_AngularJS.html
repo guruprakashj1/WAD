@@ -1,54 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AngularJS MVC Example</title>
+  <title>Grading App</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </head>
 <body ng-app="myApp" ng-controller="StudentController">
-  <h1>Student Information</h1>
-
+  <h1> Student Grade Info</h1>
   <div>
-    <label for="name">Name:</label>
+
+    <label for="name">Student Name:</label>
     <input type="text" id="name" ng-model="student.name">
+
+    <div>
+      <label for="age">Age:</label>
+      <input type="number" id="age" ng-model="student.age">
+    </div>
+
+    <div>
+      <label for="grade">Grade:</label>
+      <input type="text" id="grade" ng-model="student.grade">
+    </div>
+
+    <div>
+      <button ng-click="saveStudent()">Push Student Info</button>
+    </div>
+
+    <div>
+      <h1>Student Grade Info</h1>
+      <p>Name: {{ student.name }}</p>
+      <p>Age: {{ student.age }}</p>
+      <p>Grade: {{ student.grade }}</p>
+
+    </div>
+
+<script>
+  var app = angular.module('myApp', []);
+app.controller('StudentController',function($scope){
+  $scope.student = {
+    name: '',
+    age: null,
+    grade: ''
+  };
+  
+  $scope.saveStudent = function(){
+    console.log($scope.student);
+  }
+});
+</script>
+
   </div>
 
-  <div>
-    <label for="age">Age:</label>
-    <input type="number" id="age" ng-model="student.age">
-  </div>
-
-  <div>
-    <label for="grade">Grade:</label>
-    <input type="text" id="grade" ng-model="student.grade">
-  </div>
-
-  <div>
-    <button ng-click="saveStudent()">Save</button>
-  </div>
-
-  <div>
-    <h2>Student Details</h2>
-    <p>Name: {{ student.name }}</p>
-    <p>Age: {{ student.age }}</p>
-    <p>Grade: {{ student.grade }}</p>
-  </div>
-
-  <script>
-    var app = angular.module('myApp', []);
-
-    app.controller('StudentController', function($scope) {
-      $scope.student = {
-        name: '',
-        age: null,
-        grade: ''
-      };
-
-      $scope.saveStudent = function() {
-        // Perform any validation or additional logic before saving the student
-        // In this example, we are simply logging the student object
-        console.log($scope.student);
-      };
-    });
-  </script>
 </body>
 </html>

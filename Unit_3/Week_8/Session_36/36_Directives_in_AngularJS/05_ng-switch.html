@@ -1,34 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>AngularJS Example</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-</head>
-<body>
-    <div ng-app="myApp" ng-controller="myCtrl">
-        <h2>Select a Fruit:</h2>
+    <head>
+        <title>ex: for ng-if and ng-switch</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    </head>
+    <body>
+        <div ng-app="myApp" ng-controller="myCtrl">
+        <h2>Select the Fruit : </h2>
         <select ng-model="selectedFruit">
-            <option value="apple">Apple</option>
-            <option value="banana">Banana</option>
-            <option value="orange">Orange</option>
+            <option value="Apple">Apple</option>
+            <option value="Banana">Banana</option>
+            <option value="Orange">Orange</option>
         </select>
 
-        <div ng-switch="selectedFruit">
-            <p ng-switch-when="apple" ng-if="selectedFruit === 'apple'" style="color: red;">You selected an apple.</p>
-            <p ng-switch-when="banana" ng-if="selectedFruit === 'banana'" style="color: yellow; background-color: green;">You selected a banana.</p>
-            <p ng-switch-when="orange">You selected an orange.</p>
-            <p ng-switch-default>Please select a fruit.</p>
-        </div>
-
-
+        <p ng-switch="selectedFruit">
+            <span ng-switch-when="Apple" ng-if="selectedFruit === 'Apple'" style="color : red;">Apple is good for health and is in red color</span>
+            <span ng-switch-when="Banana" ng-if="selectedFruit ==='Banana'" style="color:yellow ; background-color: green;">Banana is good for health and is in yellow color</span>
+            <span ng-switch-when="Orange" ng-if="selectedFruit==='Orange'" style="color: orange; background-color: green;">Orange is good for health is in Orange color</span>
+            <span ng-switch-default>Select a fruit</span>
+        </p>
 
     </div>
-
     <script>
-        var app = angular.module('myApp', []);
-        app.controller('myCtrl', function($scope) {
-            $scope.selectedFruit = ""; // Initialize the selectedFruit variable
+        var app = angular.module('myApp',[]);
+        app.controller('myCtrl',function($scope){
+            $scope.selectedFruit = "";
         });
     </script>
-</body>
+
+    </body>
 </html>

@@ -1,29 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>AngularJS Example</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
-</head>
-<body>
-    <script>
-        var app = angular.module('myApp', []);
-        app.controller('myCtrl', function($scope) {
-            $scope.principle = 1000;
-            $scope.rate = 10;
-            $scope.time = 1;
-        });
-    </script>
-
-    <p>ng-app with appname and the value from the script above</p>
-
-    <div ng-app="myApp" ng-controller="myCtrl">
-
-        <p>Principle Amount: <input type="text" ng-model="principle"></p>
-        <p>Rate of Interest: <input type="text" ng-model="rate"></p>
-        <p>Time: <input type="text" ng-model="time"></p>
-        <p>Simple Interest: {{ principle * rate * time / 100 }}</p>
-        <p ng-if="principle * rate * time / 100 > 100">Interest High</p>
-
-    </div>
-</body>
+    <head>
+        <title>Learn about ng-app and contorller</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <script>
+            var app = angular.module('myApp', []);
+            app.controller('myCtrl', function($scope) {
+                $scope.Principle = 1000;
+                $scope.Rate = 10;
+                $scope.Time = 1;
+            });
+        </script>
+    </head>
+    <body ng-app="myApp" ng-controller="myCtrl">
+        <p>Ex code for SI</p>
+        <p>Principle amount: <input type="text" ng-model="Principle"></p>
+        <p>Rate of interest: <input type="text" ng-model="Rate"></p>
+        <p>Time: <input type="text" ng-model="Time"></p>
+        <p>Simple Interest: {{(Principle*Rate*Time)/100}}</p>
+        <p ng-if="(Principle*Rate*Time)/100>=100">You Interest is high - Think once before taking a loan</p>
+    </body>
 </html>
