@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="apiApp">
+<head>
+    <title>AngularJS API Service Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="DataController">
+    <h2>Data from API:</h2>
+    <input type="text" ng-model="newDataValue" placeholder="Enter new data">
+    <button ng-click="addData()">Add Data</button>
+
+    <ul>
+        <li ng-repeat="item in dataList">
+            {{ item.value }}
+            <input type="text" ng-model="item.value">
+            <button ng-click="updateData(item)">Update</button>
+            <button ng-click="deleteData($index, item.id)">Delete</button>
+        </li>
+    </ul>
+</div>
+
+<script>
+    var app = angular.module('apiApp', []);
+    
+    // Include the DataService and DataController code here.
+    app.factory('DataService', function($http, $q) {
+    return {
+        getData: function() {
+            // Mocked data
+            var mockData = [
+                { id: 1, value: "Sample 1" },
+                { id: 2, value: "Sample 2" },
+                { id: 3, value: "Sample 3" }
+            ];
+
+            return $q.resolve({ data: mockData });
+        },
+        createData: function(data) {
+            // Mock data creation
+            return $q.resolve({ data: data });
+        },
+        updateData: function(id, data) {
+            // Mock data update
+            return $q.resolve({ data: data });
+        },
+        deleteData: function(id) {
+            // Mock data deletion
+            return $q.resolve({ data: { id: id } });
+        }
+    };
+});
+
+
+app.controller('DataController', function($scope, DataService) {
+    $scope.dataList = [];
+
+    // Load data initially
+    DataService.getData().then(function(response) {
+        $scope.dataList = response.data;
+    });
+
+    $scope.addData = function() {
+        DataService.createData({ value: $scope.newDataValue }).then(function(response) {
+            $scope.dataList.push(response.data);
+            $scope.newDataValue = '';
+        });
+    };
+
+    $scope.updateData = function(item) {
+        DataService.updateData(item.id, item).then(function(response) {
+            // Data updated successfully. Handle any additional logic here.
+        });
+    };
+
+    $scope.deleteData = function(index, id) {
+        DataService.deleteData(id).then(function(response) {
+            $scope.dataList.splice(index, 1);
+        });
+    };
+});
+
+</script>
+
+</body>
+</html>

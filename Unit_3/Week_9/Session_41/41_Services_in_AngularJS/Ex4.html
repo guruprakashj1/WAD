@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="apiApp">
+<head>
+    <title>AngularJS API Service Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="DataController">
+    <h2>Users from API:</h2>
+<p>list is populated using the ng-repeat directive which iterates over the users array</p>
+    <ul>
+        <li ng-repeat="user in users">
+            {{ user.name }} - {{ user.email }}
+        </li>
+    </ul>
+</div>
+
+<script>
+    //this is the main app to demonstrate the use of a service to retrieve data from an API
+    var app = angular.module('apiApp', []);
+    
+    app.factory('UserService', function($http) {
+        var baseUrl = 'https://jsonplaceholder.typicode.com/users';  // Using a mock online REST API for demonstration purposes
+
+        return {
+            //UserService to retrieve data from an API
+            getUsers: function() {
+                return $http.get(baseUrl).then(function(response) {
+                    return response.data;
+                });
+            }
+        };
+    });
+
+    app.controller('DataController', function($scope, UserService) {
+        $scope.users = [];
+        // this controller uses the UserService to fetch the users and assign them to a scope variable $scope.users
+        // Load users initially
+        UserService.getUsers().then(function(data) {
+            $scope.users = data;
+        });
+    });
+</script>
+
+</body>
+</html>

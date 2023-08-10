@@ -1,4 +1,4 @@
-Thinks to know for this session 
+Things  to know for this session 
 
 The ngRoute module routes your application to different pages without reloading the entire application.
 

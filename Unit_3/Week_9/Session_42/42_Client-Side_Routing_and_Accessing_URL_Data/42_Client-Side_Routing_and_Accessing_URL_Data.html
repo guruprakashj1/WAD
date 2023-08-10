@@ -21,10 +21,10 @@
                 templateUrl : "main.htm"
             })
             .when("/red", {
-                template : "<h1> RED </h1>"
+                template : "<h1> RED THE RED</h1>"
             })
             .when("/green", {
-                templateUrl : "./red.htm"
+                templateUrl : "red.htm"
             })
             .when("/blue", {
                 templateUrl : "blue.htm"
@@ -35,8 +35,7 @@
     
 <p>Lets add a template for red.htm</p>
 
-<div ng-app="" ng-init="myCol='red'">
-    <input style="background-color:{{myCol}}" ng-model="myCol">
+
 
 
 

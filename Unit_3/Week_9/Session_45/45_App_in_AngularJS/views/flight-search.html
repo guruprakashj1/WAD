@@ -1,0 +1,30 @@
+<div>
+    <h1>Flight Search</h1>
+  
+    <label for="departure">Departure City:</label>
+    <input type="text" ng-model="flightSearch.departure" id="departure" />
+  
+    <label for="arrival">Arrival City:</label>
+    <input type="text" ng-model="flightSearch.arrival" id="arrival" />
+  
+    <label for="date">Date:</label>
+    <input type="date" ng-model="flightSearch.date" id="date" />
+  
+    <label for="passengers">Number of Passengers:</label>
+    <input type="number" ng-model="flightSearch.passengers" id="passengers" />
+  
+    <button ng-click="flightSearch.searchFlights()">Search Flights</button>
+  
+    <div ng-if="flightSearch.flightResults.length > 0">
+      <h2>Search Results:</h2>
+      <ul>
+        <li ng-repeat="flight in flightSearch.flightResults">
+          <a href="#/flight/{{ flight.id }}">{{ flight.flightNumber }}</a>
+          <p>Departure: {{ flight.departure }}</p>
+          <p>Arrival: {{ flight.arrival }}</p>
+          <p>Price: {{ flight.price }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

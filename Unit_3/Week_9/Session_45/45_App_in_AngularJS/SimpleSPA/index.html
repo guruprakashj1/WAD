@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html ng-app="flightApp">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.min.js"></script>
+    <title>Flight Booking SPA</title>
+</head>
+
+<body>
+
+<div ng-view></div>
+
+<script>
+    var app = angular.module('flightApp', ['ngRoute']);
+
+    app.config(['$routeProvider', function($routeProvider) {
+        $routeProvider
+        .when('/', {
+            template: `
+                <div>
+                    Departure: 
+                    <select ng-model="departure" ng-options="city for city in cities"></select>
+                    
+                    Arrival: 
+                    <select ng-model="arrival" ng-options="city for city in cities"></select>
+                    
+                    Date: 
+                    <input type="date" ng-model="date">
+                    
+                    <button ng-click="search()">Search</button>
+                    <div ng-repeat="flight in flights">
+                        <div>
+                            {{ flight.departure }} to {{ flight.arrival }} on {{ flight.date }} for {{ flight.price }}
+                            <a href="#/booking/{{ flight.id }}">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            `,
+            controller: 'SearchController'
+        })
+        .when('/booking/:flightId', {
+            template: `
+                <div>
+                    <button ng-click="bookFlight()">Book Flight</button>
+                    <div ng-if="confirmation">
+                        Your booking is confirmed! Your confirmation number is: {{ confirmation.confirmationNumber }}
+                    </div>
+                </div>
+            `,
+            controller: 'BookingController'
+        })
+        .otherwise({
+            redirectTo: '/'
+        });
+    }]);
+
+    app.controller('SearchController', ['$scope', 'FlightService', function($scope, FlightService) {
+        $scope.cities = ['NYC', 'LAX', 'CHI', 'MIA', 'SEA', 'ATL']; // Sample list of cities
+
+        $scope.search = function() {
+            FlightService.searchFlights($scope.departure, $scope.arrival, $scope.date).then(function(results) {
+                $scope.flights = results;
+            });
+        };
+    }]);
+
+    app.controller('BookingController', ['$scope', '$routeParams', 'FlightService', function($scope, $routeParams, FlightService) {
+        var flightId = $routeParams.flightId;
+        $scope.bookFlight = function() {
+            FlightService.bookFlight(flightId).then(function(response) {
+                $scope.confirmation = response.confirmation;
+            });
+        };
+    }]);
+
+    app.service('FlightService', ['$q', function($q) {
+        this.searchFlights = function(departure, arrival, date) {
+            var flights = [
+                { id: 1, departure: 'NYC', arrival: 'LAX', date: '2023-08-11', price: '$500' },
+                // ... other flights
+            ];
+            return $q.resolve(flights);
+        };
+
+        this.bookFlight = function(flightId) {
+            var confirmation = {
+                flightId: flightId,
+                confirmationNumber: 'ABC123'
+            };
+            return $q.resolve(confirmation);
+        };
+    }]);
+</script>
+
+</body>
+</html>

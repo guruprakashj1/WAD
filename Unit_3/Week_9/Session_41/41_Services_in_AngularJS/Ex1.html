@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AngularJS Service Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body>
+
+<div id="myAppDiv">
+    <h2>Service Output:</h2>
+    <p ng-controller="MyController">{{ greeting }}</p>
+</div>
+
+<div id="myApp1Div">
+    <h2>Service Output:</h2>
+    <p ng-controller="MyController1">{{ greeting }}</p>
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    
+    app.factory('MyService', function() {
+        var serviceObject = {};
+        serviceObject.sayHello = function(name) {
+            return "Hello, " + name;
+        };
+        return serviceObject;
+    });
+    
+    app.controller('MyController', function($scope, MyService) {
+        $scope.greeting = MyService.sayHello('my name is guru');
+    });
+
+    var app1 = angular.module('myApp1', []);
+    
+    app1.service('MyService1', function() {
+        this.sayHello = function(name) {
+            return "Hello, " + name;
+        };
+    });
+    
+    app1.controller('MyController1', function($scope, MyService1) {
+        $scope.greeting = MyService1.sayHello('my name is guru');  
+    });
+
+    // Manually bootstrap the modules
+    angular.element(document).ready(function() {
+        angular.bootstrap(document.getElementById("myAppDiv"), ['myApp']);
+        angular.bootstrap(document.getElementById("myApp1Div"), ['myApp1']);
+    });
+</script>
+
+</body>
+</html>

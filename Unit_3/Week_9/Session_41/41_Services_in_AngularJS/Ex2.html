@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html ng-app="userApp">
+<head>
+    <title>AngularJS User Service Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-controller="UserController">
+    <h2>User Management</h2>
+
+    <input type="text" ng-model="newUserName" placeholder="Enter user name">
+    <button ng-click="addUser()">Add User</button>
+
+    <ul>
+        <li ng-repeat="user in users">
+            {{ user.name }}
+            <input type="text" ng-model="user.newName" placeholder="New name">
+            <button ng-click="updateUser($index, user.newName)">Update</button>
+            <button ng-click="deleteUser($index)">Delete</button>
+        </li>
+    </ul>
+</div>
+
+<script>
+    //  AngularJS service and controller code here.
+    var app = angular.module('userApp', []);
+
+app.factory('UserService', function() {
+    var users = [];
+
+    return {
+        addUser: function(user) {
+            users.push(user);
+        },
+        getUsers: function() {
+            return users;
+        },
+        updateUser: function(index, updatedUser) {
+            users[index] = updatedUser;
+        },
+        deleteUser: function(index) {
+            users.splice(index, 1);
+        }
+    };
+});
+
+app.controller('UserController', function($scope, UserService) {
+    $scope.users = UserService.getUsers();
+
+    $scope.addUser = function() {
+        UserService.addUser({ name: $scope.newUserName });
+        $scope.newUserName = '';  // Clear the input field
+    };
+
+    $scope.updateUser = function(index, updatedName) {
+        UserService.updateUser(index, { name: updatedName });
+    };
+
+    $scope.deleteUser = function(index) {
+        UserService.deleteUser(index);
+    };
+});
+
+
+</script>
+
+</body>
+</html>
