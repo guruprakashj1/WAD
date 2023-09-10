@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <book>
+        <title>Harry Potter</title>
+        <author>J.K. Rowling</author>
+        <year>1997</year>
+    </book>
+    <book>
+        <title>Malgudi Days</title>
+        <author>R. K. Narayan</author>
+        <year>1937</year>
+    </book>
+</root>
