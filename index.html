@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Web Application Development</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d325508b-54a1-441c-a6c6-4b33ef8ea2b1" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="https://www.notion.so/icons/globe_blue.svg"/></div><h1 class="page-title">Web Application Development</h1><p class="page-description"></p></header><div class="page-body"><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>Session</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedBy"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 10.4229C6.05176 10.4229 4.54785 11.1133 3.83008 11.9131C2.90039 10.9082 2.33301 9.55469 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 9.55469 13.1064 10.9082 12.1699 11.9131C11.4521 11.1133 9.94824 10.4229 8 10.4229ZM8 9.30176C9.32617 9.30859 10.3516 8.18066 10.3516 6.71094C10.3516 5.33008 9.31934 4.18164 8 4.18164C6.6875 4.18164 5.6416 5.33008 5.64844 6.71094C5.65527 8.18066 6.68066 9.28809 8 9.30176Z"></path></svg></span>Created by</th></tr></thead><tbody><tr id="10a14633-114c-4302-bf2c-7d0b7b24f8c4"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Part%20%E2%80%93%201%20HTML%20and%20CSS%2010a14633114c4302bf2c7d0b7b24f8c4.html"><img class="icon" src="https://www.notion.so/icons/code_green.svg"/>Part – 1 : HTML and CSS</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="ccbaebc1-890c-4936-9de2-fda92bf2de7e"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/HTML5%20Basics%20and%20Basic%20Tags%20ccbaebc1890c49369de2fda92bf2de7e.html">HTML5 Basics and Basic Tags</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="8d8a302c-afac-4de4-9513-597a577bbb36"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Tables%208d8a302cafac4de49513597a577bbb36.html">Tables</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="766f3b0a-47ed-4225-af84-51607a163e06"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Forms%20766f3b0a47ed4225af8451607a163e06.html">Forms</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="6c7a2b34-badc-46f1-b259-9f6053e36673"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/HTML5%20Tags%206c7a2b34badc46f1b2599f6053e36673.html">HTML5 Tags</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="800ec893-1160-4817-a0c4-fa4d5a3c1b6c"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/HTML%20Graphics%20800ec89311604817a0c4fa4d5a3c1b6c.html">HTML Graphics</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="8f299595-59b2-4dea-ba75-b84869395749"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/HTML%20Media%208f29959559b24deaba75b84869395749.html">HTML Media</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="e279fe35-95a1-4a73-81ab-cfe707869ff0"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/HTML%20APIs%20e279fe3595a14a7381abcfe707869ff0.html">HTML APIs</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="a4b65547-66a2-424e-8399-d47500ccf3f1"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Background,%20Borders,%20Margin,%20Box%20Model%20a4b6554766a2424e8399d47500ccf3f1.html">Background, Borders, Margin, Box Model</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="aadea44e-0f91-4d80-b7a9-d955242c013b"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Styling%20Text,%20Fonts%20aadea44e0f914d80b7a9d955242c013b.html">Styling Text, Fonts</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="d1abef67-daff-46cc-b2c6-28cee0b2f476"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/List,%20Links,%20Tables%20d1abef67daff46ccb2c628cee0b2f476.html">List, Links, Tables</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="73d67f8a-bca7-488b-a2f0-2807b0456044"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/CSS%20Overflow,%20Float,%20Inline%20Blocks%2073d67f8abca7488ba2f02807b0456044.html">CSS Overflow, Float, Inline Blocks</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="5d17dddd-6c14-4775-9cb1-7abdf2e5d479"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Pseudo-classes,%20Pseudo-elements%205d17dddd6c1447759cb17abdf2e5d479.html">Pseudo-classes, Pseudo-elements</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="42359b1e-b06a-4469-852e-b0ea865496fb"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/CSS%20Border%20Images,%20Rounded%20Corners%2042359b1eb06a4469852eb0ea865496fb.html">CSS Border Images, Rounded Corners</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="38a5782e-e7e7-4655-987f-a8ce0c4485a9"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Part%20%E2%80%93%202%20Java%20Script%2038a5782ee7e74655987fa8ce0c4485a9.html"><img class="icon" src="https://www.notion.so/icons/coffee-maker_green.svg"/>Part – 2 : Java Script</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="ffbc1620-4a7a-46ab-9aed-30e9fec7d78b"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Introduction%20to%20JavaScript%20ffbc16204a7a46ab9aed30e9fec7d78b.html">Introduction to JavaScript</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="a32f99bf-1c85-479e-b933-496cbb5ff10f"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Variables,%20Control%20Statements,%20Loops%20a32f99bf1c85479eb933496cbb5ff10f.html">Variables, Control Statements, Loops</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="32936632-e94a-44e2-ae82-9111c182e344"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Arrays,%20String%20Handling%2032936632e94a44e2ae829111c182e344.html">Arrays, String Handling</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="a7204046-7ae6-4274-9550-5ce4a94fdd8f"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Functions%20in%20JavaScript%20a72040467ae6427495505ce4a94fdd8f.html">Functions in JavaScript</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="d9d28d60-b150-4ccc-b18d-48c47d5cf5d0"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Inputting%20and%20Outputting%20from%20Form%20Elements%20to%20Jav%20d9d28d60b1504cccb18d48c47d5cf5d0.html">Inputting and Outputting from Form Elements to JavaScript</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="aacc4a07-c104-4492-9b9f-42dc3ea1999d"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/DOM%20Concept,%20Creating%20HTML%20Elements%20using%20JavaScri%20aacc4a07c10444929b9f42dc3ea1999d.html">DOM Concept, Creating HTML Elements using JavaScript</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="82a5a0f0-cef2-4632-8123-c6218b10088f"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Drawing%202D%20Shapes,%20Handling%20Events%2082a5a0f0cef246328123c6218b10088f.html">Drawing 2D Shapes, Handling Events</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="475cc076-1bf7-4774-b33c-d5bc8e5b7a0c"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Introduction%20to%20AJAX%20475cc0761bf74774b33cd5bc8e5b7a0c.html">Introduction to AJAX</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="195175f7-17fa-4b08-a1a5-87727237997d"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/jQuery%20195175f717fa4b08a1a587727237997d.html">jQuery</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="2990363c-4385-41bd-896f-314dd359572f"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Part%20%E2%80%93%203%20AngularJS%202990363c438541bd896f314dd359572f.html"><img class="icon" src="https://www.notion.so/icons/window_green.svg"/>Part – 3 : AngularJS</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="c6c1846f-5506-41f9-be51-41a3c827313a"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Introduction%20to%20Single-Page%20Applications%20c6c1846f550641f9be5141a3c827313a.html">Introduction to Single-Page Applications</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="54df5250-ce28-40c9-850a-8b49990ef3ab"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/AngularJS%20as%20a%20framework%20for%20building%20SPAs%2054df5250ce2840c9850a8b49990ef3ab.html">AngularJS as a framework for building SPAs</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="e439b735-bf5f-4355-907e-340f55758e99"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Two-Way%20Data%20Binding%20e439b735bf5f4355907e340f55758e99.html">Two-Way Data Binding</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="03e0a13c-f3d7-4cd7-bfa5-44478e9f7531"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/MVC%20in%20AngularJS%2003e0a13cf3d74cd7bfa544478e9f7531.html">MVC in AngularJS</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="be8083b3-fa68-43d4-b75f-1aeda2027557"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Controllers%20and%20User%20Inputs%20be8083b3fa6843d4b75f1aeda2027557.html">Controllers and User Inputs</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="da935084-1400-41df-864d-4db0ab6835be"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Loops%20and%20Iteration%20da935084140041df864d4db0ab6835be.html">Loops and Iteration</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="6765f648-3fb8-4e0a-a4b8-cdbf76656c14"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Client-Side%20Routing%20and%20Accessing%20URL%20Data%206765f6483fb84e0aa4b8cdbf76656c14.html">Client-Side Routing and Accessing URL Data</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="baf5f3e3-932a-441c-8930-53caa8a4f641"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Various%20Ways%20to%20Provide%20Data%20in%20AngularJS%20baf5f3e3932a441c893053caa8a4f641.html">Various Ways to Provide Data in AngularJS</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="614656da-5546-4b05-9f5b-9df155ac9730"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Part%20%E2%80%93%204%20PHP%20&amp;%20MySQL%20614656da55464b059f5b9df155ac9730.html"><img class="icon" src="https://www.notion.so/icons/database_green.svg"/>Part – 4 : PHP &amp; MySQL</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="e54ceebe-09f0-4443-a66e-7f12c5d7bbd6"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Server-Side%20Scripting%20and%20Difference%20with%20Client-S%20e54ceebe09f04443a66e7f12c5d7bbd6.html">Server-Side Scripting and Difference with Client-Side Scripting</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="f4973ae5-69df-4b69-a040-e4ffffca322f"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Introduction%20to%20PHP,%20Variables,%20Control%20Statements%20f4973ae569df4b69a040e4ffffca322f.html">Introduction to PHP, Variables, Control Statements, Loops</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="2873f33a-cd93-4075-93b8-b69f618ef0c8"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Arrays%20and%20String%20Handling%202873f33acd93407593b8b69f618ef0c8.html">Arrays and String Handling</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="f1c5e796-f131-4e3c-9285-52d26f7d7cac"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/PHP%20Forms%20and%20Global%20Variables%20f1c5e796f1314e3c928552d26f7d7cac.html">PHP Forms and Global Variables</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="20b434e0-bf77-43ab-abf7-c83148ff2d33"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Regular%20Expressions%20and%20Pattern%20Matching%2020b434e0bf7743ababf7c83148ff2d33.html">Regular Expressions and Pattern Matching</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="059e97a9-8143-49ac-a0ac-ef201d465c3a"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Database%20Programming%20Inputting%20and%20Outputting%20Data%20059e97a9814349aca0acef201d465c3a.html">Database Programming: Inputting and Outputting Data from MySQL using PHP</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="2ecf590b-f732-4a3c-88e0-a9c06d671a13"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/State%20Management%20in%20Web%20Applications%20Cookies%202ecf590bf7324a3c88e0a9c06d671a13.html">State Management in Web Applications: Cookies</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="e30b469a-dde3-406e-b90a-5ac9c093f435"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Application%20and%20Session%20State%20e30b469adde3406eb90a5ac9c093f435.html">Application and Session State</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="970dc03e-50f7-4fa8-9b2f-5307a3c63171"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Parts%20%E2%80%93%205%20XML%20970dc03e50f74fa89b2f5307a3c63171.html"><img class="icon" src="https://www.notion.so/icons/timeline_green.svg"/>Parts – 5 : XML </a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="1d35a8bd-5b48-446d-aed3-26a545f6fead"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Introduction%20to%20XML%201d35a8bd5b48446daed326a545f6fead.html">Introduction to XML</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="c072a112-c785-422c-8b0e-4a1c1bd41dd5"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/XML%20Tags,%20Elements,%20and%20Attributes%20c072a112c785422c8b0e4a1c1bd41dd5.html">XML Tags, Elements, and Attributes</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="27cdf72a-3edb-49a3-8896-07eacc5e7437"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/Attribute%20Types%20in%20XML%2027cdf72a3edb49a3889607eacc5e7437.html">Attribute Types in XML</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="cf28a11c-c815-42da-b660-d2e47da6a35d"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/XML%20Validation%20DTD%20and%20XSD%20cf28a11cc81542dab660d2e47da6a35d.html">XML Validation: DTD and XSD</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr><tr id="de136000-1bf4-4d87-b9bf-ff231171ca0f"><td class="cell-title"><a href="Web%20Application%20Development%20d325508b54a1441ca6c64b33ef8ea2b1/XML%20DOM%20(Document%20Object%20Model)%20de1360001bf44d87b9bfff231171ca0f.html">XML DOM (Document Object Model)</a></td><td class="cell-zJrK"><span class="user"><span class="icon text-icon user-icon"><span class="user-icon-inner">G</span></span>Guruprakash</span></td></tr></tbody></table><br/><br/></div></article></body></html>
