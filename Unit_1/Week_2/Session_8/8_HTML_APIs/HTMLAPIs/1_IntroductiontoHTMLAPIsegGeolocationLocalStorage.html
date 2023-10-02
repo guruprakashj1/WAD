@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<script>
+// The 'navigator.geolocation' object is used to get the geographical position of a user.
+function getLocation() {
+  if (navigator.geolocation) {
+    // The 'getCurrentPosition' method retrieves the current geographic location of the user's device.
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    document.getElementById("demo").innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+// Function to display the position
+function showPosition(position) {
+  document.getElementById("demo").innerHTML = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+
+</body>
+</html> 
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to store your name in the browser's local storage.</p>
+<input id="myName" value="Your Name">
+<button onclick="storeName()">Try It</button>
+
+<p id="demo"></p>
+
+<script>
+function storeName() {
+  // The 'localStorage' object is used to store data in a web browser.
+  // The 'setItem' method is used to store a named value.
+  localStorage.setItem("name", document.getElementById('myName').value);
+  
+  // The 'getItem' method is used to retrieve the value of the named item.
+  document.getElementById("demo").innerHTML = "Stored Name: " + localStorage.getItem("name");
+}
+</script>
+
+</body>
+</html> 

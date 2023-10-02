@@ -1,0 +1,35 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>Pseudo-elements</title> <!-- This defines the title of the webpage. -->
+    <style>
+        /* Styles for the paragraph */
+        p {
+            position: relative; /* Establishes a positioning context for the pseudo-elements */
+        }
+
+        /* Styles for the ::before pseudo-element */
+        p::before {
+            content: "Before"; /* Inserts content before the paragraph */
+            color: rgb(0, 255, 149); /* Sets the color of the content */
+            /*font-weight: bold; /* Sets the font weight of the content */
+        }
+
+        /* Styles for the ::after pseudo-element */
+        p::after {
+            content: "After"; /* Inserts content after the paragraph */
+            color: blue; /* Sets the color of the content */
+            font-weight: bold; /* Sets the font weight of the content */
+        }
+    </style>
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <p>This is a paragraph.</p> <!-- This is the paragraph element -->
+
+</body>
+
+</html>

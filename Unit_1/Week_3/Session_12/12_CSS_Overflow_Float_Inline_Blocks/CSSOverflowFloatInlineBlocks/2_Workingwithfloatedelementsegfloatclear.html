@@ -1,0 +1,43 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>Floated Elements</title> <!-- This defines the title of the webpage. -->
+    <style>
+        /* Styles for the left floated element */
+        .left {
+            float: left; /* Floats the element to the left */
+            width: 200px; /* Sets the width of the element */
+            height: 100px; /* Sets the height of the element */
+            background-color: lightblue; /* Sets the background color of the element */
+            margin: 10px; /* Adds some margin around the element */
+        }
+
+        /* Styles for the right floated element */
+        .right {
+            float: right; /* Floats the element to the right */
+            width: 200px; /* Sets the width of the element */
+            height: 100px; /* Sets the height of the element */
+            background-color: lightgreen; /* Sets the background color of the element */
+            margin: 10px; /* Adds some margin around the element */
+        }
+        
+        /* Styles for the clearing element */
+        .clear {
+            clear: both; /* Clears the floated elements and prevents wrapping */
+        }
+    </style>
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <div class="left"></div> <!-- This is the left floated element -->
+    <div class="right"></div> <!-- This is the right floated element -->
+    <div class="clear"></div> <!-- This is the clearing element -->
+
+    <p>This is some text below the floated elements.</p>
+
+</body>
+
+</html>

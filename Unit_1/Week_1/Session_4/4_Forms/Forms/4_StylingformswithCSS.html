@@ -1,0 +1,57 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>HTML5 Form Styling</title> <!-- This defines the title of the webpage (displayed in a browser's title bar or tab). -->
+    
+    <style>
+    /* The 'style' tag is used for internal CSS. This CSS applies to all input elements and textarea. */
+    input, textarea {
+        display: block; /* Makes the element take the full width of its parent. */
+        width: 300px; /* Specifies the width of the element. */
+        padding: 10px; /* Adds space around the content of the element. */
+        margin-bottom: 10px; /* Adds space below the element. */
+        font-size: 16px; /* Specifies the font size of the input text. */
+    }
+    button {
+        padding: 10px 20px; /* Adds space around the content of the button. The first value is for the top and bottom padding, the second value is for the left and right padding. */
+        font-size: 16px; /* Specifies the font size of the button text. */
+        background-color: #007BFF; /* Sets the background color of the button. */
+        color: white; /* Sets the color of the button text. */
+        border: none; /* Removes the border of the button. */
+        border-radius: 5px; /* Makes the corners of the button rounded. */
+        cursor: pointer; /* Changes the mouse cursor when hovering over the button. */
+    }
+    button:hover {
+        background-color: #0056b3; /* Changes the background color of the button when the mouse hovers over it. */
+    }
+    </style>
+
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <h1 style="text-align: center;">HTML5 Form Styling</h1> <!-- 'style' attribute is used for inline CSS. This centers the heading. -->
+
+    <!-- 'form' tag defines an HTML form for user input. -->
+    <form action="/submit-form">
+        <!-- 'label' tag defines a label for an input element. -->
+        <label for="name">Name:</label>
+        <!-- 'input' tag specifies an input field where the user can enter data. -->
+        <input type="text" id="name" name="name">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+
+        <label for="message">Message:</label>
+        <!-- 'textarea' tag defines a multi-line text input control. -->
+        <textarea id="message" name="message"></textarea>
+
+        <!-- 'button' tag represents a clickable button. 'type' attribute with 'submit' value specifies that the button should submit the form. -->
+        <button type="submit">Submit</button>
+    </form> 
+
+</body>
+
+</html>

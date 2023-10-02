@@ -1,0 +1,49 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The 'lang' attribute helps screen readers to correctly pronounce content. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>Accessible Webpage Example</title> <!-- The 'title' tag helps provide context for users who can't see the page. -->
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <header>
+        <h1>Website Title</h1> <!-- Headings provide structure and help screen reader users to navigate the page. -->
+        <nav>
+            <ul>
+                <!-- The 'a' tag 'href' attribute value should be a valid URL or fragment ID. -->
+                <!-- Anchor text should be descriptive and provide context when read out of context. -->
+                <li><a href="#home">Go to Home</a></li>
+                <li><a href="#about">Learn About Us</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <h2 id="home">Home</h2>
+            <p>This is the homepage. Welcome!</p>
+            <h2 id="about">About</h2>
+            <p>We are a company that values accessibility.</p>
+            <h2 id="contact">Contact</h2>
+            <form>
+                <label for="email">Email:</label>
+                <!-- The 'label' tag 'for' attribute value should match the 'id' attribute value of the related 'input' tag. -->
+                <!-- This makes the label clickable and helps screen reader users. -->
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Submit</button>
+            </form>
+        </article>
+    </main>
+
+    <footer>
+        <!-- 'alt' attribute provides alternative text for screen reader users when images can't be displayed. -->
+        <img src="logo.jpg" alt="Company Logo">
+        <p>Copyright © 2023</p>
+    </footer>
+
+</body>
+
+</html>

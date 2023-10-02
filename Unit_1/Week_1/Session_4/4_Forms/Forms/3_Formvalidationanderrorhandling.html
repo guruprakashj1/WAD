@@ -1,0 +1,81 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>HTML5 Form Validation</title> <!-- This defines the title of the webpage (displayed in a browser's title bar or tab). -->
+
+    <script>
+        // JavaScript function to handle the form validation and provide custom error messages.
+        function validateForm(event) {
+            var form = event.target;
+            if (!form.checkValidity()) {
+                event.preventDefault(); // Prevents form submission.
+                if (form.name.value === "") {
+                    alert("Please enter your name.");
+                } else if (form.email.value === "" || !form.email.validity.valid) {
+                    alert("Please enter a valid email.");
+                } else if (form.age.value < 18 || form.age.value > 99) {
+                    alert("Please enter a valid age (18-99).");
+                }
+            }
+        }
+        </script>
+
+
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <h1>HTML5 Form Validation</h1> <!-- This is a top-level heading. -->
+
+    <!-- 'form' tag defines an HTML form for user input. -->
+    <form action="/submit-form">
+        <!-- 'label' tag defines a label for an input element. -->
+        <label for="name">Name:</label><br>
+        <!-- 'required' attribute specifies that an input field must be filled out before submitting the form. -->
+        <input type="text" id="name" name="name" required><br> 
+
+        <label for="age">Age:</label><br>
+        <!-- 'min' and 'max' attributes specify the allowed range of values for an input field. -->
+        <input type="number" id="age" name="age" min="18" max="99"><br>
+
+        <label for="email">Email:</label><br>
+        <!-- 'pattern' attribute specifies a regular expression that the input field's value is checked against. -->
+        <input type="email" id="email" name="email" pattern=".+@domain\.com" required title="Please provide a 'domain.com' email address"><br>
+
+        <label for="password">Password:</label><br>
+        <!-- 'minlength' and 'maxlength' attributes specify the minimum and maximum length of the input field. -->
+        <input type="password" id="password" name="password" minlength="8" maxlength="20" required><br>
+
+        <!-- 'button' tag represents a clickable button. 'type' attribute with 'submit' value specifies that the button should submit the form. -->
+        <button type="submit">Submit</button>
+    </form> 
+
+
+    <h1>HTML5 Form Validation with JavaScript</h1> <!-- This is a top-level heading. -->
+
+    <!-- 'form' tag defines an HTML form for user input. 'onsubmit' attribute calls the JavaScript function when the form is submitted. -->
+    <form onsubmit="validateForm(event)">
+        <!-- 'label' tag defines a label for an input element. -->
+        <label for="name">Name:</label><br>
+        <!-- 'input' tag specifies an input field where the user can enter data. 'required' attribute specifies that the field must be filled out before submitting the form. -->
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="age">Age:</label><br>
+        <input type="number" id="age" name="age" min="18" max="99"><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+
+        <!-- 'button' tag represents a clickable button. 'type' attribute with 'submit' value specifies that the button should submit the form. -->
+        <button type="submit">Submit</button>
+    </form> 
+
+</body>
+
+</html>
+
+
+
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>HTML5 Anchor Tags</title> <!-- This defines the title of the webpage (displayed in a browser's title bar or tab). -->
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+    <h1>HTML5 Anchor Tags</h1> <!-- This is a top-level heading. -->
+
+    <!-- 'a' tag is used to create hyperlinks. 'href' attribute contains the URL of the page the link goes to. -->
+    <p><a href="https://www.google.com">This is a link to an external website</a>.</p> 
+
+    <!-- The 'target' attribute specifies where to open the linked document. '_blank' value means to open the link in a new window or tab. -->
+    <p><a href="https://www.google.com" target="_blank">This is a link that opens in a new window/tab</a>.</p>
+
+    <!-- Anchor tag can also be used for linking to different sections of the same webpage. Here 'href' contains the id of the element to link to. -->
+    <p><a href="#section1">Go to Section 1</a></p>
+
+    <section id="section1"> <!-- This section can be linked to using the id 'section1'. -->
+        <h2>Section 1</h2>
+        <p>This is section 1.</p>
+    </section>
+
+    <!-- Anchor tag can also be used to link to an email address. When clicked, it opens the user's default mail program. -->
+    <p>Contact us at: <a href="mailto:someone@example.com">someone@example.com</a></p>
+
+    <!-- Anchor tag can also be used to link to a phone number. When clicked, it opens the user's phone dialer. -->
+    <p>Call us at: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+
+    <!-- Anchor tag without 'href' attribute can be used as a placeholder for links that might be added in the future. -->
+    <p><a>This is a placeholder link</a></p>
+</body>
+
+</html>

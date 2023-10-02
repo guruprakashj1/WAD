@@ -1,0 +1,54 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>Table Styling</title> <!-- This defines the title of the webpage. -->
+    <style>
+        /* Styles for the table */
+        table {
+            width: 100%; /* Sets the width of the table to 100% of its container */
+            border-collapse: collapse; /* Merges the table cell borders */
+        }
+
+        /* Styles for table cells */
+        th, td {
+            padding: 10px; /* Adds padding inside the table cells */
+            border: 1px solid black; /* Sets a border for the table cells */
+            background-color: aqua;
+            color:brown;
+        }
+
+        /* Styles for table headers */
+        th {
+            background-color: lightblue; /* Sets a background color for the table headers */
+            font-weight: bold; /* Sets the font weight to bold for the table headers */
+            color: black;
+        }
+    </style>
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <table> <!-- This is the table element -->
+        <thead> <!-- This is the table header section -->
+            <tr> <!-- This is a table row -->
+                <th>Header 1</th> <!-- This is a table header cell -->
+                <th>Header 2</th> <!-- This is another table header cell -->
+            </tr>
+        </thead>
+        <tbody> <!-- This is the table body section -->
+            <tr>
+                <td>Data 1</td> <!-- This is a table data cell -->
+                <td>Data 2</td> <!-- This is another table data cell -->
+            </tr>
+            <tr>
+                <td>Data 3</td>
+                <td>Data 4</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

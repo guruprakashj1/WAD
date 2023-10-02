@@ -1,0 +1,26 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>Border Image</title> <!-- This defines the title of the webpage. -->
+    <style>
+        /* Styles for the element */
+        .border-image-element {
+            width: 300px; /* Sets the width of the element */
+            height: 200px; /* Sets the height of the element */
+            border: 20px solid; /* Sets the width and style of the border */
+            border-image-source: url(border.png); /* Specifies the URL of the image to use as the border */
+            border-image-slice: 30; /* Sets the inward offset from the border image edges */
+            border-image-repeat: round; /* Specifies how the border image is repeated */
+        }
+    </style>
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <div class="border-image-element"></div> <!-- This is the element with the border image -->
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>HTML5 Forms</title> <!-- This defines the title of the webpage (displayed in a browser's title bar or tab). -->
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <h1>HTML5 Forms</h1> <!-- This is a top-level heading. -->
+
+    <!-- 'form' tag defines an HTML form for user input. 'action' attribute specifies where to send the form-data when the form is submitted. -->
+    <form action="/submit-form">
+
+        <!-- 'label' tag defines a label for an input element. 'for' attribute specifies which form element a label is bound to. -->
+        <label for="fname">First Name:</label><br>
+        <!-- 'input' tag specifies an input field where the user can enter data. 'type' attribute defines the input type. 'id' attribute is used to associate the input with its label. -->
+        <input type="text" id="fname" name="fname"><br>
+
+        <label for="lname">Last Name:</label><br>
+        <input type="text" id="lname" name="lname"><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required> <!-- 'required' attribute specifies that an input field must be filled out before submitting the form. --><br>
+
+        <label for="message">Message:</label><br>
+        <!-- 'textarea' tag defines a multi-line text input control. -->
+        <textarea id="message" name="message"></textarea><br>
+
+        <!-- 'button' tag represents a clickable button. -->
+        <button type="submit">Submit</button> <!-- 'type' attribute with 'submit' value specifies that the button should submit the form. -->
+
+    </form> 
+
+</body>
+
+</html>

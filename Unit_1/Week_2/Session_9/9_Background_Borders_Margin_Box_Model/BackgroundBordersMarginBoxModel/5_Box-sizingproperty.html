@@ -1,0 +1,33 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>Box Sizing Property</title> <!-- This defines the title of the webpage. -->
+    <style>
+        /* These styles apply to a div element with class "content-box" */
+        .content-box {
+            box-sizing: content-box; /* Sets box-sizing property to content-box */
+            width: 200px; /* Sets width of the div */
+            padding: 20px; /* Sets padding inside the box */
+            border: 5px solid black; /* Sets a border for the box */
+        }
+        
+        /* These styles apply to a div element with class "border-box" */
+        .border-box {
+            box-sizing: border-box; /* Sets box-sizing property to border-box */
+            width: 200px; /* Sets width of the div */
+            padding: 20px; /* Sets padding inside the box */
+            border: 5px solid black; /* Sets a border for the box */
+        }
+    </style>
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <div class="content-box">This is a div with box-sizing: content-box.</div>
+    <div class="border-box">This is a div with box-sizing: border-box.</div>
+
+</body>
+
+</html>

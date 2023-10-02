@@ -1,0 +1,36 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>Overflow Property</title> <!-- This defines the title of the webpage. -->
+    <style>
+        /* Styles for the container */
+        .container {
+            width: 200px; /* Sets the width of the container */
+            height: 200px; /* Sets the height of the container */
+            border: 1px solid black; /* Sets a border for the container */
+            overflow: auto; /* Displays scrollbars when content overflows the container */
+        }
+
+        /* Styles for the content */
+        .content {
+            width: 250px; /* Sets the width of the content */
+            height: 250px; /* Sets the height of the content */
+            background-color: lightblue; /* Sets the background color of the content */
+        }
+    </style>
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <div class="container"> <!-- This is the container element -->
+        <div class="content"> <!-- This is the content element -->
+            Content that overflows the container will be clipped or displayed with scrollbars.
+            Content that overflows the container will be clipped or displayed with scrollbars.
+        </div>
+    </div>
+
+</body>
+
+</html>

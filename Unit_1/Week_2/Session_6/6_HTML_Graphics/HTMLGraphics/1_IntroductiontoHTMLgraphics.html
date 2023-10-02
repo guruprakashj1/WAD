@@ -1,0 +1,39 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>HTML Graphics</title> <!-- This defines the title of the webpage. -->
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <!-- The 'img' tag is used to embed images. The 'alt' attribute provides alternative text for those who can't see the image. -->
+    <img src="C:\_WAD\Media\image.jpg" alt="Description of Image" width="500" height="600">
+
+    <!-- The 'canvas' tag is used to draw graphics on the fly with JavaScript. It is a container for graphics. -->
+    <canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;">
+        <!-- Fallback content for browsers that don't support 'canvas'. -->
+        Your browser does not support the HTML canvas tag.
+    </canvas>
+
+    <!-- The 'svg' (Scalable Vector Graphics) tag is used to embed vector graphics. -->
+    <!-- SVG graphics do NOT lose any quality if they are zoomed or resized. -->
+    <!-- Here, we're creating a simple rectangle. -->
+    <svg width="400" height="180">
+        <rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)">
+        <!-- Fallback content for browsers that don't support 'svg'. -->
+        Your browser does not support the HTML svg tag.
+    </svg>
+
+    <script>
+    // 'canvas' example: draw a rectangle.
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = "#FF0000";
+    ctx.fillRect(0, 0, 150, 75);
+    </script>
+
+</body>
+
+</html>

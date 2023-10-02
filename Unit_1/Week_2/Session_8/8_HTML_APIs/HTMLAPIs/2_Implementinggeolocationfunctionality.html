@@ -1,0 +1,35 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>Geolocation API</title> <!-- This defines the title of the webpage. -->
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <button onclick="getLocation()">Get Location</button> <!-- This button triggers the getLocation function when clicked. -->
+
+    <p id="locationData">Location data will appear here...</p> <!-- This paragraph will display the location data. -->
+
+    <script>
+        function getLocation() {
+            // Check if the Geolocation API is supported.
+            if (navigator.geolocation) {
+                // The getCurrentPosition method retrieves the current geographic location of the device.
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                document.getElementById("locationData").innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        // This function receives a Position object (from the getCurrentPosition method) and updates the content of the paragraph.
+        function showPosition(position) {
+            document.getElementById("locationData").innerHTML = "Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude;
+        }
+    </script>
+
+</body>
+
+</html>

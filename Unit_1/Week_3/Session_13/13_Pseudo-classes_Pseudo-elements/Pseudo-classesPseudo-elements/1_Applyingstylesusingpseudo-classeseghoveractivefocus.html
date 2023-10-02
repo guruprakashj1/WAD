@@ -1,0 +1,42 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>Pseudo-classes</title> <!-- This defines the title of the webpage. -->
+    <style>
+        /* Styles for the link */
+        a {
+            color: blue; /* Sets the default color of the link */
+            text-decoration: none; /* Removes the underline from the link */
+        }
+
+        /* Styles for the link on hover */
+        a:hover {
+            color: red; /* Sets the color of the link when hovered over */
+            text-decoration: underline; /* Adds an underline to the link on hover */
+        }
+
+        /* Styles for the link when active */
+        a:active {
+            color: green; /* Sets the color of the link when clicked */
+        }
+
+        /* Styles for the input when focused */
+        input:focus {
+            background-color: lightyellow; /* Sets the background color of the input when focused */
+        }
+    </style>
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <a href="#">Hover over this link</a> <!-- This is a link -->
+
+    <br><br>
+
+    <input type="text" placeholder="Click here and focus on this input"> <!-- This is an input field -->
+
+</body>
+
+</html>

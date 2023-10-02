@@ -1,0 +1,30 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>Background Properties</title> <!-- This defines the title of the webpage. -->
+    <style>
+        /* This style applies a background color to the body of the document */
+        body {
+            background-color: rgb(88, 129, 143); /* Sets the background color of the body */
+        }
+
+        /* This style applies a background image to a div element */
+        .image-background {
+            background-image: url('image.jpg'); /* Sets the background image of the div */
+            height: 500px; /* Sets the height of the div */
+            width: 500px; /* Sets the width of the div */
+            background-repeat: no-repeat; /* Specifies that the background image should not be repeated */
+            background-size: cover; /* Specifies that the background image should cover the entire div */
+        }
+    </style>
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <div class="image-background"></div> <!-- This div will have a background image -->
+
+</body>
+
+</html>

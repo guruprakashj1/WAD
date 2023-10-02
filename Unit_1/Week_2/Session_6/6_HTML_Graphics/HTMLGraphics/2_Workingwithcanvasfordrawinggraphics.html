@@ -1,0 +1,45 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>Canvas Example</title> <!-- This defines the title of the webpage. -->
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <!-- The 'canvas' tag is used to create a drawing surface. It is a container for graphics. -->
+    <canvas id="myCanvas" width="500" height="500" style="border:1px solid #d3d3d3;">
+        <!-- Fallback content for browsers that don't support 'canvas'. -->
+        Your browser does not support the HTML canvas tag.
+    </canvas>
+
+    <script>
+        // First, we get a reference to the canvas element.
+        var canvas = document.getElementById('myCanvas');
+
+        // Then, we get a 2D rendering context for the canvas.
+        var ctx = canvas.getContext('2d');
+
+        // Let's draw a red rectangle.
+        ctx.fillStyle = "red"; // Set the color to red.
+        ctx.fillRect(50, 50, 200, 100); // Draw a rectangle at (50, 50) with a width and height of 100.
+
+        // Let's draw a blue line.
+        ctx.beginPath(); // Start a new path.
+        ctx.moveTo(50, 150); // Move the drawing cursor to (50, 150).
+        ctx.lineTo(150, 250); // Draw a line to (150, 250).
+        ctx.strokeStyle = "blue"; // Set the color to blue.
+        ctx.lineWidth = 2; // Set the line width to 5 pixels.
+        ctx.stroke(); // Actually draw the path.
+
+        // Let's draw a green circle.
+        ctx.beginPath(); // Start a new path.
+        ctx.arc(300, 300, 100, 0, 2 * Math.PI); // Draw a circle at (300, 300) with a radius of 50.
+        ctx.fillStyle = "green"; // Set the color to green.
+        ctx.fill(); // Actually draw the path.
+    </script>
+
+</body>
+
+</html>

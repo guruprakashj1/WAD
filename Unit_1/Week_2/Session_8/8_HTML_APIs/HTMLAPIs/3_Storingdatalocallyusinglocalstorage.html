@@ -1,0 +1,36 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>Local Storage</title> <!-- This defines the title of the webpage. -->
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <input id="name" placeholder="Enter your name"> <!-- This input field is for the user to enter their name. -->
+
+    <button onclick="storeData()">Store Name</button> <!-- This button triggers the storeData function when clicked. -->
+    
+    <button onclick="displayData()">Display Stored Name</button> <!-- This button triggers the displayData function when clicked. -->
+
+    <p id="output"></p> <!-- This paragraph will display the stored name. -->
+
+    <script>
+        function storeData() {
+            // The 'localStorage' object is used to store data in a web browser.
+            // The 'setItem' method is used to store a named value.
+            var name = document.getElementById("name").value;
+            localStorage.setItem("name", name);
+        }
+
+        function displayData() {
+            // The 'getItem' method is used to retrieve the value of the named item.
+            var storedName = localStorage.getItem("name");
+            document.getElementById("output").innerHTML = "Stored Name: " + storedName;
+        }
+    </script>
+
+</body>
+
+</html>

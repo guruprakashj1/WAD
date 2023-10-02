@@ -1,0 +1,43 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>SVG Basics</title> <!-- This defines the title of the webpage. -->
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <!-- The 'svg' (Scalable Vector Graphics) tag is used to embed vector graphics. -->
+    <!-- SVG graphics do NOT lose any quality if they are zoomed or resized. -->
+    <svg width="400" height="400">
+
+        <!-- The 'rect' element represents a rectangle. -->
+        <!-- The 'x' and 'y' attributes define the left and top positions of the rectangle. -->
+        <!-- The 'width' and 'height' attributes define the size of the rectangle. -->
+        <!-- The 'fill' attribute defines the inner color of the rectangle. -->
+        <rect x="50" y="50" width="100" height="100" fill="blue"/>
+
+        <!-- The 'circle' element is used to draw circles. -->
+        <!-- The 'cx' and 'cy' attributes define the x and y coordinates of the center of the circle. -->
+        <!-- The 'r' attribute defines the radius of the circle. -->
+        <!-- The 'stroke' attribute defines the color of the circle's outline. -->
+        <!-- The 'stroke-width' attribute defines the width of the circle's outline. -->
+        <circle cx="200" cy="200" r="50" stroke="green" stroke-width="4" fill="yellow" />
+
+        <!-- The 'line' element is used to draw lines. -->
+        <!-- The 'x1', 'y1', 'x2', and 'y2' attributes define the start and end points of the line. -->
+        <!-- The 'stroke' attribute defines the color of the line. -->
+        <!-- The 'stroke-width' attribute defines the width of the line. -->
+        <line x1="50" y1="300" x2="350" y2="300" style="stroke:rgb(255,0,0);stroke-width:2" />
+
+        <!-- The 'text' element is used to define text. -->
+        <!-- The 'x' and 'y' attributes define the left and top positions of the text. -->
+        <!-- The 'fill' attribute defines the color of the text. -->
+        <text x="50" y="350" fill="black">Hello SVG</text>
+
+    </svg>
+
+</body>
+
+</html>

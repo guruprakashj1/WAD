@@ -1,0 +1,68 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>HTML5 Tables</title> <!-- This defines the title of the webpage (displayed in a browser's title bar or tab). -->
+
+    <!-- 'style' tag is used to include CSS in HTML document. -->
+    <style>
+        /* Selects all 'table' elements and applies styles. */
+        table {
+            border-collapse: collapse; /* Removes the space between the borders of adjacent cells. */
+            width: 100%; /* Sets the width of the table to take up the full width of its container. */
+        }
+
+        /* Selects all 'th' and 'td' elements within 'table' and applies styles. */
+        table th, table td {
+            border: 1px solid black; /* Adds a border around the cells. */
+            padding: 8px; /* Adds some space around the content inside the cells. */
+            text-align: left; /* Aligns the text to the left side of the cell. */
+        }
+
+        /* Selects all 'th' elements within 'table' and applies styles. */
+        table th {
+            background-color: #1e08e7; /* Changes the background color of the header cells. */
+        }
+    </style>
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <h1>HTML5 Tables</h1> <!-- This is a top-level heading. -->
+
+    <!-- 'table' tag defines an HTML table. -->
+    <table>
+        <!-- 'thead' tag groups the header content in an HTML table. -->
+        <thead>
+            <!-- 'tr' tag defines a row in an HTML table. -->
+            <tr>
+                <!-- 'th' tag defines a header cell in an HTML table. -->
+                <th>First Name</th> 
+                <th>Last Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+
+        <!-- 'tbody' tag groups the body content in an HTML table. -->
+        <tbody>
+            <!-- Another 'tr' for the second row. -->
+            <tr>
+                <!-- 'td' tag defines a standard cell in an HTML table. -->
+                <td>Guru</td> 
+                <td>G</td>
+                <td>GuruG@example.com</td>
+            </tr>
+
+            <!-- Repeat 'tr' and 'td' tags for each row in the table. -->
+            <tr>
+                <td>Student</td> 
+                <td>G</td>
+                <td>StudentG@example.com</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

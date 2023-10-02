@@ -1,0 +1,55 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>Control Video with JavaScript</title> <!-- This defines the title of the webpage. -->
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <!-- The 'video' tag is used to embed video content. -->
+    <!-- The 'id' attribute is used to uniquely identify the video element for JavaScript. -->
+
+<table border="5">
+<tr>
+    <td>
+    <video id="myVideo" width="320" height="240">
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    </td>
+</tr>
+<tr>
+    <td>
+    <!-- Buttons to control the video playback. -->
+    <button onclick="playVideo()">Play</button>
+    <button onclick="pauseVideo()">Pause</button>
+    <button onclick="restartVideo()">Restart</button>
+    </td>
+</tr>
+</table>
+    <script>
+        // Get a reference to the video element.
+        var video = document.getElementById("myVideo");
+
+        // Function to play the video.
+        function playVideo() {
+            video.play();
+        }
+
+        // Function to pause the video.
+        function pauseVideo() {
+            video.pause();
+        }
+
+        // Function to restart the video.
+        function restartVideo() {
+            video.currentTime = 0; // Set the video time to 0.
+            video.play(); // Start playing from the start.
+        }
+    </script>
+
+</body>
+
+</html>

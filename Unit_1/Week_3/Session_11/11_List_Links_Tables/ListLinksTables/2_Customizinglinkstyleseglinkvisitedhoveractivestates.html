@@ -1,0 +1,44 @@
+<!DOCTYPE html> <!-- This declares the document type and version of HTML. -->
+<html lang="en"> <!-- The root element of an HTML page. -->
+
+<head> <!-- This contains meta-information about the document. -->
+    <meta charset="UTF-8"> <!-- This specifies the character encoding for the HTML document. -->
+    <title>Link Styles</title> <!-- This defines the title of the webpage. -->
+    <style>
+        /* Styles for normal links */
+        a {
+            color: rgba(0, 0, 255, 0.886); /* Sets the color of the link */
+            text-decoration: none; /* Removes underline from the link */
+        }
+
+        /* Styles for visited links */
+        a:visited {
+            color: rgb(86, 12, 159); /* Sets the color of visited links */
+        }
+
+        /* Styles for hover state */
+        a:hover {
+            color: red; /* Sets the color when the link is being hovered over */
+            text-decoration: underline; /* Adds underline on hover */
+        }
+
+        /* Styles for active state */
+        a:active {
+            color: green; /* Sets the color when the link is being clicked */
+        }
+    </style>
+</head> 
+
+<body> <!-- This contains the content of the document. -->
+
+    <h2>Link Styles Example</h2>
+
+    <p>This is a <a href="#">normal link</a>.</p>
+    
+    <p>This is a <a href="#" target="_blank">normal link that opens in a new tab</a>.</p>
+
+    <p>This is a <a href="#" target="_blank" rel="noopener noreferrer">normal link that opens in a new tab with security attributes</a>.</p>
+
+</body>
+
+</html>
